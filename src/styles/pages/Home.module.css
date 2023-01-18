@@ -1,3 +1,14 @@
+@keyframes fadeInBottomToTop {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 20%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
 .home_wrap {
   width: 100%;
   height: 100vh;
@@ -49,18 +60,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 430px;
+  width: 450px;
   height: 60px;
   position: relative;
-  top: 37rem;
+  top: 36.45rem;
   margin: auto;
   color: black;
   font-weight: bold;
   text-align: center;
   background-color: #ffffff;
   padding: 0 10px;
-  box-sizing: border-boxc;
+  box-sizing: border-box;
   border-radius: 5px;
+  animation: fadeInBottomToTop 1s ease;
 }
 
 .home_login_join > div:first-child {
