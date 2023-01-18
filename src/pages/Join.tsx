@@ -8,7 +8,7 @@ const Join = () => {
   const handleCancleBtn = () => path("/");
   return (
     <div className={styles.join_wrap}>
-      <div className={styles.login_main}>
+      <div className={styles.join_main}>
         <div className={styles.join_img_box}>
           <img className={styles.join_img} src={backGroundImg} />
         </div>

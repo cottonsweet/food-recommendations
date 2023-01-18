@@ -115,6 +115,14 @@
   font-weight: bold;
 }
 
+.join_name:focus,
+.join_email:focus,
+.join_password:focus,
+.join_password2:focus {
+  outline: none;
+  border: 1px solid orange;
+}
+
 .join_btn {
   width: 395px;
   height: 45px;
