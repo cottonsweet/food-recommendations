@@ -137,8 +137,15 @@
   margin-top: 10px;
 }
 
+.errorMsg {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
 .join_defaultLogin_wrap {
-  margin-top: 35px;
+  margin-top: 20px;
   text-align: center;
   font-size: 14px;
   color: rgba(0, 0, 0, 0.7);
