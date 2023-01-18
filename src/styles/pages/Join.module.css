@@ -23,6 +23,7 @@
   height: 100vh;
   position: relative;
   background-color: slategray;
+  overflow-y: auto;
 }
 .join_main {
   animation: fadeInLoginImg 2.5s ease;
