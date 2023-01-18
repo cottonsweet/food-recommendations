@@ -25,7 +25,7 @@ const Login = () => {
           </div>
           <div className={styles.login_user_wrap}>
             <form className={styles.login_form}>
-              <input className={styles.loign_email} placeholder="이메일 주소" />
+              <input className={styles.login_email} placeholder="이메일 주소" />
               <input className={styles.login_password} placeholder="비밀번호" />
               <button className={styles.login_btn}>로그인</button>
             </form>
