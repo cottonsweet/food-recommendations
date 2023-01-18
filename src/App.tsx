@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { auth } from "./Auth";
 import { onAuthStateChanged } from "firebase/auth";
 import Home from "./pages/Home";
@@ -9,17 +9,9 @@ import Main from "./components/Main";
 
 function App() {
   const [login, setLogin] = useState(false);
-  const path = useNavigate();
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setLogin(true);
-        path("/");
-      } else {
-        setLogin(false);
-      }
-    });
+    onAuthStateChanged(auth, (user) => (user ? setLogin(true) : setLogin(false)));
   });
 
   return (

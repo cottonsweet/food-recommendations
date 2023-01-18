@@ -38,6 +38,7 @@ const Join = () => {
     password !== password2 && setErrorMsg("비밀번호가 서로 동일하지 않습니다.");
     try {
       await createUserWithEmailAndPassword(auth, email, password);
+      path("/");
     } catch (error) {
       console.log(error);
     }

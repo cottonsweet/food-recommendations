@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../Auth";
 import backGroundImg from "../assets/backGround.jpg";
 import styles from "../styles/pages/Login.module.css";
 
