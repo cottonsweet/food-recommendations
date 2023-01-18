@@ -14,6 +14,7 @@
 
 .home_img {
   width: 450px;
+  height: 700px;
   border-radius: 5px;
 }
 
@@ -51,7 +52,7 @@
   width: 430px;
   height: 60px;
   position: relative;
-  top: 28.9rem;
+  top: 37rem;
   margin: auto;
   color: black;
   font-weight: bold;
