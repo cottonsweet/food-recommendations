@@ -14,6 +14,7 @@ const Join = () => {
   const path = useNavigate();
   const handleCancleBtn = () => path("/");
 
+  // Input값의 이벤트 발생시, 사용자가 입력한 값을 받아온다.
   const setUserInfo = (e: React.FormEvent<HTMLInputElement>) => {
     const name = (e.target as HTMLFormElement).name;
     const value = (e.target as HTMLFormElement).value;
@@ -32,6 +33,7 @@ const Join = () => {
     }
   };
 
+  // 회원가입 기능 함수
   const handleSubmitAccountJoin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(auth);
