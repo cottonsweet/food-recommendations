@@ -1,7 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import styles from "../styles/pages/Home.module.css";
 import backGroundImg from "../assets/backGround.jpg";
 
 const Home = () => {
+  const path = useNavigate();
+
+  const loginBtn = () => path("/login");
+  const joinBtn = () => path("/join");
+
   return (
     <div className={styles.home_wrap}>
       <div className={styles.home_img_box}>
@@ -13,8 +19,8 @@ const Home = () => {
         <span>먹을까?</span>
       </div>
       <div className={styles.home_login_join}>
-        <div>회원가입</div>
-        <div>로그인</div>
+        <div onClick={joinBtn}>회원가입</div>
+        <div onClick={loginBtn}>로그인</div>
       </div>
     </div>
   );
