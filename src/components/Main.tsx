@@ -1,6 +1,19 @@
+import { useState } from "react";
 import styles from "../styles/components/Main.module.css";
 
 const Main = () => {
+  const [userFood, setUserFood] = useState<string>("");
+  const [foodItem, setFoodItem] = useState<string[]>([]);
+
+  const onSubmitFood = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setFoodItem((prev) => [...prev, userFood]);
+    setUserFood("");
+  };
+
+  const setFoodValue = (e: React.ChangeEvent<HTMLInputElement>) => setUserFood(e.target.value);
+
   return (
     <div className={styles.Main_wrap}>
       <div className={styles.Main}>
@@ -19,8 +32,8 @@ const Main = () => {
         </div>
         <div className={styles.Main_user_food}>
           <div>오늘은 어떤 음식을 드시고 싶으세요?</div>
-          <form>
-            <input placeholder="음식 이름을 여기에 입력 해주세요!" />
+          <form onSubmit={onSubmitFood}>
+            <input onChange={setFoodValue} value={userFood} placeholder="음식 이름을 여기에 입력 해주세요!" />
           </form>
         </div>
         <div className={styles.Main_food_wrap}>
