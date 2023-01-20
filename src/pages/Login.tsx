@@ -10,7 +10,9 @@ const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const path = useNavigate();
+
   const handleCancleBtn = () => path("/");
+  const handleJoinBtn = () => path("/join");
 
   const onChangeInputValue = (e: React.FormEvent<HTMLInputElement>) => {
     const name = (e.target as HTMLFormElement).name;
@@ -68,7 +70,9 @@ const Login = () => {
             </form>
           </div>
           <div className={styles.login_create_wrap}>
-            <span className={styles.login_create_btn}>가입하신 계정이 없으신가요 ?</span>
+            <span onClick={handleJoinBtn} className={styles.login_create_btn}>
+              가입하신 계정이 없으신가요 ?
+            </span>
           </div>
         </div>
       </div>
