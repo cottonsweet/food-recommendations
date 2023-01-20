@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "../styles/components/Main.module.css";
+import NotDataFood from "./NotDataFood";
 
 const Main = () => {
   const [userFood, setUserFood] = useState<string>("");
