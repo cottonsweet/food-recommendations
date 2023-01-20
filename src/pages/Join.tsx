@@ -13,6 +13,7 @@ const Join = () => {
   const [errorMsg, setErrorMsg] = useState<string>("");
   const path = useNavigate();
   const handleCancleBtn = () => path("/");
+  const handleLoginBtn = () => path("/login");
 
   // Input값의 이벤트 발생시, 사용자가 입력한 값을 받아온다.
   const setUserInfo = (e: React.FormEvent<HTMLInputElement>) => {
@@ -75,7 +76,9 @@ const Join = () => {
             <div className={styles.errorMsg}>{errorMsg ? errorMsg : null}</div>
           </div>
           <div className={styles.join_defaultLogin_wrap}>
-            <span className={styles.join_defaultLogin_btn}>이미 가입하신 계정이 있으신가요 ?</span>
+            <span onClick={handleLoginBtn} className={styles.join_defaultLogin_btn}>
+              이미 가입하신 계정이 있으신가요 ?
+            </span>
           </div>
         </div>
       </div>
