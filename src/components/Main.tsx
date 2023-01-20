@@ -39,8 +39,9 @@ const Main = () => {
         </div>
         <div className={styles.Main_food_wrap}>
           <div className={styles.Main_food__manual}>오늘, 뭘 먹을래? 이용방법!</div>
-          <div>입력한 음식이 없음</div>
-          <div>선택된 음식종류 ??가지</div>
+          {foodItem.map((a) => {
+            return <div>{a}</div>;
+          })}
         </div>
         <div className={styles.Main_food_randomResult}>
           <button>결과 확인하기</button>
