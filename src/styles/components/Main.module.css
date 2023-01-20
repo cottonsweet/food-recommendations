@@ -1,0 +1,80 @@
+.Main_wrap {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow-y: scroll;
+  background-color: slategray;
+}
+
+.Main {
+  width: 450px;
+  height: 700px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  margin: 30px auto 30px auto;
+}
+
+.Main_header {
+  background-color: gray;
+}
+
+.Main_menu_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.Main_header__info {
+  display: flex;
+}
+
+.Main_header__userName {
+  margin-right: 15px;
+}
+
+.Main_user_food {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.Main_user_food > form > input {
+  width: 400px;
+  height: 40px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-top: 15px;
+  border: 2px solid orange;
+  border-radius: 5px;
+}
+
+.Main_user_food > form > input:focus {
+  outline: none;
+}
+
+.Main_food_wrap {
+  height: 409px;
+  margin-top: 25px;
+  background-color: grey;
+}
+
+.Main_food_randomResult {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 87px;
+}
+
+.Main_food_randomResult > button {
+  width: 400px;
+  height: 40px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 15px;
+  background-color: #ffde6a;
+}
