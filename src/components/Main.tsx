@@ -44,14 +44,13 @@ const Main = () => {
           <div className={styles.Main_food__manual}>
             <span>오늘, 뭘 먹을래? 이용방법!</span>
           </div>
+
           <div className={styles.foodItem}>
             {foodItem.map((a, i) => {
               return (
                 <div key={i} className={styles.foodItem__list}>
-                  <span>
-                    {i + 1}
-                    <span>{a}</span>
-                  </span>
+                  <span className={styles.foodItem__list__number}>{i + 1}</span>
+                  <span className={styles.foodItem__list__item}>{a}</span>
                 </div>
               );
             })}
