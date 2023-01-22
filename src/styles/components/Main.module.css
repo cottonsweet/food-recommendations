@@ -17,6 +17,7 @@
 .Main_header {
   background-color: #efefef;
   height: 130px;
+  border-radius: 5px;
 }
 
 .Main_menu_header {
@@ -24,7 +25,7 @@
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
-  padding: 15px;
+  padding: 25px 25px 10px 25px;
   box-sizing: border-box;
 }
 
@@ -42,6 +43,7 @@
 }
 
 .Main_header__setting_btn {
+  font-size: 25px;
   cursor: pointer;
 }
 
@@ -74,7 +76,7 @@
 
 .Main_food_wrap {
   height: 294px;
-  padding: 25px 10px;
+  padding: 25px;
 }
 
 .foodItem_header {

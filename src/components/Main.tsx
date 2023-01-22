@@ -2,6 +2,7 @@ import { useState } from "react";
 import { auth } from "../Auth";
 import styles from "../styles/components/Main.module.css";
 import NotDataFood from "./NotDataFood";
+import { HiCog } from "react-icons/hi";
 
 const Main = () => {
   const [userFood, setUserFood] = useState<string>("");
@@ -32,7 +33,9 @@ const Main = () => {
               <span>먹을까?</span>
             </div>
             <div className={styles.Main_header__info}>
-              <span className={styles.Main_header__setting_btn}>설정</span>
+              <span className={styles.Main_header__setting_btn}>
+                <HiCog />
+              </span>
             </div>
           </div>
           <div className={styles.Main_header__userName}>{userName === null ? "익명" : userName}님, 반갑습니다.</div>
@@ -54,7 +57,7 @@ const Main = () => {
             </span>
           </div>
           <div className={styles.foodItem}>
-            {foodItem.map((a, i) => {
+            {foodItem?.map((a, i) => {
               return (
                 <div key={i} className={styles.foodItem__list}>
                   <span className={styles.foodItem__list__number}>{i + 1}</span>
