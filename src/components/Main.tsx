@@ -8,7 +8,8 @@ const Main = () => {
 
   const onSubmitFood = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    if (userFood === "") return alert("공백은 금지 입니다.");
+    if (userFood.length > 10) return alert("10글자 미만으로 기입 해주세요 !");
     setFoodItem((prev) => [...prev, userFood]);
     setUserFood("");
   };
@@ -38,10 +39,21 @@ const Main = () => {
           </form>
         </div>
         <div className={styles.Main_food_wrap}>
-          <div className={styles.Main_food__manual}>오늘, 뭘 먹을래? 이용방법!</div>
-          {foodItem.map((a) => {
-            return <div>{a}</div>;
-          })}
+          <div className={styles.Main_food__manual}>
+            <span>오늘, 뭘 먹을래? 이용방법!</span>
+          </div>
+          <div className={styles.foodItem}>
+            {foodItem.map((a, i) => {
+              return (
+                <div key={i} className={styles.foodItem__list}>
+                  <span>
+                    {i + 1}
+                    <span>{a}</span>
+                  </span>
+                </div>
+              );
+            })}
+          </div>
         </div>
         <div className={styles.Main_food_randomResult}>
           <button>결과 확인하기</button>
