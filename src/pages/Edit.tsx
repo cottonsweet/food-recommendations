@@ -1,9 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import { HiCog } from "react-icons/hi";
 import styles from "../styles/pages/Edit.module.css";
 import { auth } from "../Auth";
 
 const Edit = () => {
   const userName = auth.currentUser?.displayName;
+  const path = useNavigate();
+
+  const handleMainBtn = () => path("/");
   return (
     <div className={styles.Edit_wrap}>
       <div className={styles.Edit}>
@@ -24,7 +28,7 @@ const Edit = () => {
         </div>
         <div className={styles.Edit__section}>
           <div className={styles.Edit_pathHome__Btn}>
-            <span>돌아가기</span>
+            <span onClick={handleMainBtn}>돌아가기</span>
           </div>
           <div className={styles.Edit_tool}>
             <div className={styles.Edit_tool__title}>설정</div>
