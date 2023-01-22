@@ -77,6 +77,26 @@
   padding: 25px 10px;
 }
 
+.foodItem_header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  color: grey;
+  font-size: 14px;
+}
+
+.foodItem_itemLength {
+  font-weight: bold;
+}
+
+.foodItem_itemClear__btn {
+  cursor: pointer;
+}
+
+.foodItem_header {
+  margin-bottom: 10px;
+}
+
 .Main_food__manual {
   text-align: right;
   padding-right: 15px;
@@ -131,7 +151,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 131.5px;
+  height: 80px;
+  margin-top: 40px;
 }
 
 .Main_food_randomResult > button {

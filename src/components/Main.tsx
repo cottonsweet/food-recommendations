@@ -44,7 +44,10 @@ const Main = () => {
           <div className={styles.Main_food__manual}>
             <span>오늘, 뭘 먹을래? 이용방법!</span>
           </div>
-
+          <div className={styles.foodItem_header}>
+            <div className={styles.foodItem_itemLength}>선택된 음식 - 5/{foodItem.length}</div>
+            <span className={styles.foodItem_itemClear__btn}>초기화</span>
+          </div>
           <div className={styles.foodItem}>
             {foodItem.map((a, i) => {
               return (
