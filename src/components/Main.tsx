@@ -1,7 +1,7 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { auth } from "../Auth";
 import styles from "../styles/components/Main.module.css";
-import NotDataFood from "./NotDataFood";
 import { HiCog } from "react-icons/hi";
 
 const Main = () => {
@@ -9,6 +9,9 @@ const Main = () => {
   const [foodItem, setFoodItem] = useState<string[]>([]);
 
   const userName = auth.currentUser?.displayName;
+  const path = useNavigate();
+
+  const handleEditBtn = () => path("/edit");
 
   const itemFoodListClearBtn = () => setFoodItem([]);
 
@@ -36,7 +39,7 @@ const Main = () => {
               <span>먹을까?</span>
             </div>
             <div className={styles.Main_header__info}>
-              <span className={styles.Main_header__setting_btn}>
+              <span onClick={handleEditBtn} className={styles.Main_header__setting_btn}>
                 <HiCog />
               </span>
             </div>
