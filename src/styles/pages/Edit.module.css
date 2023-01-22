@@ -16,7 +16,7 @@
 
 .Edit_header {
   background-color: #efefef;
-  height: 140px;
+  height: 130px;
   border-radius: 5px;
 }
 
@@ -70,7 +70,7 @@
 }
 
 .Edit_tool {
-  height: 496px;
+  height: 508px;
   padding: 0 20px;
   border-radius: 5px;
 }
@@ -79,7 +79,7 @@
   text-align: center;
   font-size: 22px;
   font-weight: bold;
-  margin: 25px 0;
+  margin: 20px 0;
 }
 
 .Edit_profile > span {
@@ -113,7 +113,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 350px;
+  margin-top: 370px;
   background-color: orange;
   border-radius: 5px;
   cursor: pointer;

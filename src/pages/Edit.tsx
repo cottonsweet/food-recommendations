@@ -2,12 +2,25 @@ import { useNavigate } from "react-router-dom";
 import { HiCog } from "react-icons/hi";
 import styles from "../styles/pages/Edit.module.css";
 import { auth } from "../Auth";
+import { signOut } from "firebase/auth";
 
 const Edit = () => {
   const userName = auth.currentUser?.displayName;
   const path = useNavigate();
 
   const handleMainBtn = () => path("/");
+
+  const handleLogOutBtn = async () => {
+    if (window.confirm("로그아웃 하시겠습니까 ?")) {
+      try {
+        alert("로그아웃 되었습니다.");
+        await signOut(auth);
+        path("/");
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
   return (
     <div className={styles.Edit_wrap}>
       <div className={styles.Edit}>
@@ -38,7 +51,7 @@ const Edit = () => {
               <input placeholder={userName === null ? "익명" : userName} />
             </div>
 
-            <div className={styles.Edit_logOut}>
+            <div onClick={handleLogOutBtn} className={styles.Edit_logOut}>
               <span className={styles.Edit__logOut__btn}>로그아웃</span>
             </div>
           </div>
