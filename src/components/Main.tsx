@@ -8,6 +8,9 @@ const Main = () => {
   const [foodItem, setFoodItem] = useState<string[]>([]);
 
   const userName = auth.currentUser?.displayName;
+
+  const itemFoodListClearBtn = () => setFoodItem([]);
+
   const onSubmitFood = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (userFood === "") return alert("공백은 금지 입니다.");
@@ -46,7 +49,9 @@ const Main = () => {
           </div>
           <div className={styles.foodItem_header}>
             <div className={styles.foodItem_itemLength}>선택된 음식 - 5/{foodItem.length}</div>
-            <span className={styles.foodItem_itemClear__btn}>초기화</span>
+            <span onClick={itemFoodListClearBtn} className={styles.foodItem_itemClear__btn}>
+              초기화
+            </span>
           </div>
           <div className={styles.foodItem}>
             {foodItem.map((a, i) => {
