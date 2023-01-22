@@ -15,7 +15,10 @@ const Main = () => {
   const onSubmitFood = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (userFood === "") return alert("공백은 금지 입니다.");
-    if (userFood.length > 10) return alert("10글자 미만으로 기입 해주세요 !");
+    if (userFood.length > 10) {
+      setUserFood("");
+      return alert("10글자 미만으로 기입해주세요 !");
+    }
     setFoodItem((prev) => [...prev, userFood]);
     setUserFood("");
   };
