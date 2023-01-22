@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { auth } from "../Auth";
 import styles from "../styles/components/Main.module.css";
 import NotDataFood from "./NotDataFood";
 
@@ -6,6 +7,7 @@ const Main = () => {
   const [userFood, setUserFood] = useState<string>("");
   const [foodItem, setFoodItem] = useState<string[]>([]);
 
+  const userName = auth.currentUser?.displayName;
   const onSubmitFood = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (userFood === "") return alert("공백은 금지 입니다.");
@@ -27,10 +29,10 @@ const Main = () => {
               <span>먹을까?</span>
             </div>
             <div className={styles.Main_header__info}>
-              <div className={styles.Main_header__setting_btn}>설정</div>
+              <span className={styles.Main_header__setting_btn}>설정</span>
             </div>
           </div>
-          <div className={styles.Main_header__userName}>테스트님 반갑습니다.</div>
+          <div className={styles.Main_header__userName}>{userName === null ? "익명" : userName}님, 반갑습니다.</div>
         </div>
         <div className={styles.Main_user_food}>
           <div>오늘은 어떤 음식을 드시고 싶으세요?</div>

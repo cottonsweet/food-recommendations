@@ -41,6 +41,10 @@
   display: flex;
 }
 
+.Main_header__setting_btn {
+  cursor: pointer;
+}
+
 .Main_header__userName {
   text-align: center;
   font-weight: bold;
@@ -89,18 +93,21 @@
   height: 250px;
   overflow-y: scroll;
   border: 1px solid grey;
+  border-radius: 5px;
   padding: 10px;
 }
 
 .foodItem__list {
   height: 30px;
+  display: flex;
+  align-items: center;
 }
 
 .Main_food_randomResult {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 87px;
+  height: 131.5px;
 }
 
 .Main_food_randomResult > button {

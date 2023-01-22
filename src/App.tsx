@@ -9,7 +9,6 @@ import Main from "./components/Main";
 
 function App() {
   const [login, setLogin] = useState(false);
-
   useEffect(() => {
     onAuthStateChanged(auth, (user) => (user ? setLogin(true) : setLogin(false)));
   });
