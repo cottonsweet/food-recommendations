@@ -1,14 +1,31 @@
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { HiCog } from "react-icons/hi";
 import styles from "../styles/pages/Edit.module.css";
 import { auth } from "../Auth";
-import { signOut } from "firebase/auth";
+import { signOut, updateProfile } from "firebase/auth";
 
 const Edit = () => {
+  const [newUserName, setNewUserName] = useState<string>("");
   const userName = auth.currentUser?.displayName;
   const path = useNavigate();
-
   const handleMainBtn = () => path("/");
+
+  const changeUserName = (e: React.FormEvent<HTMLInputElement>) => setNewUserName((e.target as HTMLFormElement).value);
+
+  const updateProfileNickName = async () => {
+    if (newUserName === userName) return alert("기존 닉네임과 동일하게 변경은 불가합니다 !");
+    if (newUserName === "") return alert("공백은 불가합니다.");
+    if (auth.currentUser !== null) {
+      try {
+        await updateProfile(auth.currentUser, {
+          displayName: newUserName,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
 
   const handleLogOutBtn = async () => {
     if (window.confirm("로그아웃 하시겠습니까 ?")) {
@@ -47,8 +64,8 @@ const Edit = () => {
             <div className={styles.Edit_tool__title}>설정</div>
 
             <div className={styles.Edit_profile}>
-              <span>닉네임 변경</span>
-              <input placeholder={userName === null ? "익명" : userName} />
+              <span onClick={updateProfileNickName}>닉네임 변경</span>
+              <input onChange={changeUserName} placeholder={userName === null ? "익명" : userName} />
             </div>
 
             <div onClick={handleLogOutBtn} className={styles.Edit_logOut}>
