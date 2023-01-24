@@ -15,7 +15,7 @@ const Edit = () => {
 
   const updateProfileNickName = async () => {
     if (newUserName === userName) return alert("기존 닉네임과 동일하게 변경은 불가합니다 !");
-    if (newUserName === "") return alert("공백은 불가합니다.");
+    if (newUserName === "") return alert("공백은 불가합니다 !");
     if (auth.currentUser !== null) {
       try {
         await updateProfile(auth.currentUser, {

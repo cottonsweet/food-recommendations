@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile, User } from "firebase/auth";
 import { auth } from "../Auth";
 import styles from "../styles/pages/Join.module.css";
 import backGroundImg from "../assets/backGround.jpg";
@@ -37,10 +37,23 @@ const Join = () => {
   // 회원가입 기능 함수
   const handleSubmitAccountJoin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(auth);
     password !== password2 && setErrorMsg("비밀번호가 서로 동일하지 않습니다.");
     try {
       await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(auth.currentUser as User, { displayName: userName });
+      path("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // 버튼 회원가입 기능 함수
+  const handleBtnAccountJoin = async (e: React.FormEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    password !== password2 && setErrorMsg("비밀번호가 서로 동일하지 않습니다.");
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(auth.currentUser as User, { displayName: userName });
       path("/");
     } catch (error) {
       console.log(error);
@@ -67,11 +80,13 @@ const Join = () => {
           </div>
           <div className={styles.join_user_wrap}>
             <form onSubmit={handleSubmitAccountJoin} className={styles.join_form}>
-              <input name="username" onChange={setUserInfo} className={styles.join_name} placeholder="닉네임" />
-              <input name="email" onChange={setUserInfo} className={styles.join_email} placeholder="이메일 주소" />
-              <input name="password" onChange={setUserInfo} className={styles.join_password} placeholder="비밀번호" />
-              <input name="password2" onChange={setUserInfo} className={styles.join_password2} placeholder="비밀번호 확인" />
-              <button className={styles.join_btn}>회원가입</button>
+              <input type="text" name="username" onChange={setUserInfo} className={styles.join_name} placeholder="닉네임" required />
+              <input type="email" name="email" onChange={setUserInfo} className={styles.join_email} placeholder="이메일 주소" required />
+              <input type="password" name="password" onChange={setUserInfo} className={styles.join_password} placeholder="비밀번호" required />
+              <input type="password" name="password2" onChange={setUserInfo} className={styles.join_password2} placeholder="비밀번호 확인" required />
+              <button onClick={handleBtnAccountJoin} className={styles.join_btn}>
+                회원가입
+              </button>
             </form>
             <div className={styles.errorMsg}>{errorMsg ? errorMsg : null}</div>
           </div>
