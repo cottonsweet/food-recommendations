@@ -1,18 +1,17 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { auth } from "../Auth";
 import styles from "../styles/components/Main.module.css";
 import { HiCog } from "react-icons/hi";
 
 const Main = () => {
-  const [userFood, setUserFood] = useState<string>("");
+  const [userFood, setUserFood] = useState("");
   const [foodItem, setFoodItem] = useState<string[]>([]);
+  const [selected, setSelected] = useState<string[]>([]);
 
   const userName = auth.currentUser?.displayName;
   const path = useNavigate();
-
   const handleEditBtn = () => path("/edit");
-
   const itemFoodListClearBtn = () => setFoodItem([]);
 
   const onSubmitFood = (e: React.FormEvent<HTMLFormElement>) => {
@@ -24,6 +23,13 @@ const Main = () => {
     }
     setFoodItem((prev) => [...prev, userFood]);
     setUserFood("");
+    setSelected([]);
+  };
+
+  const selectedFoodItem = (e: React.FormEvent<HTMLDivElement>) => {
+    const value = (e.target as HTMLFormElement).textContent;
+    if (value !== null) {
+    }
   };
 
   const setFoodValue = (e: React.ChangeEvent<HTMLInputElement>) => setUserFood(e.target.value);
@@ -57,7 +63,9 @@ const Main = () => {
             <span>오늘, 뭘 먹을래? 이용방법!</span>
           </div>
           <div className={styles.foodItem_header}>
-            <div className={styles.foodItem_itemLength}>선택된 음식 - 5/{foodItem.length}</div>
+            <div className={styles.foodItem_itemLength}>
+              선택된 음식 - {selected.length} 헐 {foodItem.length}
+            </div>
             <span onClick={itemFoodListClearBtn} className={styles.foodItem_itemClear__btn}>
               초기화
             </span>
@@ -65,7 +73,7 @@ const Main = () => {
           <div className={styles.foodItem}>
             {foodItem?.map((a, i) => {
               return (
-                <div key={i} className={styles.foodItem__list}>
+                <div onClick={selectedFoodItem} key={i} className={styles.foodItem__list}>
                   <span className={styles.foodItem__list__number}>{i + 1}</span>
                   <span className={styles.foodItem__list__item}>{a}</span>
                 </div>
