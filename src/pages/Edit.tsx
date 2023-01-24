@@ -54,7 +54,7 @@ const Edit = () => {
               </span>
             </div>
           </div>
-          <div className={styles.Edit_header__userName}>{userName === null ? "익명" : userName}님, 반갑습니다.</div>
+          <div className={styles.Edit_header__userName}>{userName}님, 반갑습니다.</div>
         </div>
         <div className={styles.Edit__section}>
           <div className={styles.Edit_pathHome__Btn}>

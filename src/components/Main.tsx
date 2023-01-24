@@ -44,7 +44,7 @@ const Main = () => {
               </span>
             </div>
           </div>
-          <div className={styles.Main_header__userName}>{userName === null ? "익명" : userName}님, 반갑습니다.</div>
+          <div className={styles.Main_header__userName}>{userName}님, 반갑습니다.</div>
         </div>
         <div className={styles.Main_user_food}>
           <div>오늘은 어떤 음식을 드시고 싶으세요?</div>
