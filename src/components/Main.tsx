@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { auth } from "../Auth";
 import styles from "../styles/components/Main.module.css";
 import { HiCog } from "react-icons/hi";
@@ -12,10 +12,13 @@ const Main = () => {
   const userName = auth.currentUser?.displayName;
   const path = useNavigate();
   const handleEditBtn = () => path("/edit");
+
   const itemFoodListClearBtn = () => {
     setFoodItem([]);
     setSelected([]);
   };
+
+  const setItem = (value: string) => setSelected((prev) => [...prev, value]);
 
   const onSubmitFood = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,10 +31,8 @@ const Main = () => {
     setUserFood("");
   };
 
-  const selectedFoodItem = (e: React.FormEvent<HTMLDivElement>) => {
-    const value = (e.target as HTMLFormElement).textContent;
-    if (value !== null) {
-    }
+  const selectedFoodItem = (e: React.MouseEvent<HTMLDivElement>) => {
+    const value = (e.target as HTMLElement).textContent;
   };
 
   const setFoodValue = (e: React.ChangeEvent<HTMLInputElement>) => setUserFood(e.target.value);
