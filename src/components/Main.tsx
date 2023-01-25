@@ -12,7 +12,10 @@ const Main = () => {
   const userName = auth.currentUser?.displayName;
   const path = useNavigate();
   const handleEditBtn = () => path("/edit");
-  const itemFoodListClearBtn = () => setFoodItem([]);
+  const itemFoodListClearBtn = () => {
+    setFoodItem([]);
+    setSelected([]);
+  };
 
   const onSubmitFood = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,7 +26,6 @@ const Main = () => {
     }
     setFoodItem((prev) => [...prev, userFood]);
     setUserFood("");
-    setSelected([]);
   };
 
   const selectedFoodItem = (e: React.FormEvent<HTMLDivElement>) => {
