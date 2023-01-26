@@ -38,6 +38,9 @@ const Main = () => {
     const value = String((e.target as HTMLElement).textContent);
     const indexLocation = selected.indexOf(value);
     indexLocation === -1 ? setItem(value) : selected.splice(indexLocation, 1);
+
+    /** 문제점 : active state의 조건문이 없을경우 선택한 배열값이 실시간 렌더링이 제대로 되지가 않는 현상이 확인 됨 */
+    active ? setActive(false) : setActive(true);
   };
 
   console.log(selected);
@@ -85,9 +88,11 @@ const Main = () => {
               return (
                 <div onClick={selectedFoodItem} key={i} className={styles.foodItem__list}>
                   <span className={styles.foodItem__list__number}>{i + 1}</span>
-                  <span className={styles.foodItem__list__item}>{a}</span>
-                  <span>
-                    <AiOutlineCheckCircle className={`${styles.foodItem__list__icon} ${active ? styles.active : ""}`} />
+                  <span className={styles.foodItem__list__item}>
+                    {a}
+                    <span>
+                      <AiOutlineCheckCircle className={`${styles.foodItem__list__icon} ${active ? styles.active : ""}`} />
+                    </span>
                   </span>
                 </div>
               );
