@@ -4,6 +4,7 @@ import { auth } from "../Auth";
 import styles from "../styles/components/Main.module.css";
 import { HiCog } from "react-icons/hi";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import ResultModal from "./ResultModal";
 
 const Main = () => {
   const [userFood, setUserFood] = useState("");
@@ -19,6 +20,7 @@ const Main = () => {
   const itemFoodListClearBtn = () => {
     setFoodItem([]);
     setSelected([]);
+    setResult("");
     return;
   };
 
@@ -49,11 +51,13 @@ const Main = () => {
   const setFoodValue = (e: React.ChangeEvent<HTMLInputElement>) => setUserFood(e.target.value);
 
   const randomArrResult = () => {
-    console.log(selected[Math.floor(Math.random() * selected.length)]);
+    setResult(selected[Math.floor(Math.random() * selected.length)]);
+    console.log(typeof selected[Math.floor(Math.random() * selected.length)]);
   };
 
   return (
     <div className={styles.Main_wrap}>
+      {result ? <ResultModal result={result} /> : null}
       <div className={styles.Main}>
         <div className={styles.Main_header}>
           <div className={styles.Main_menu_header}>
