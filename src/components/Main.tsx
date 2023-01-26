@@ -10,6 +10,7 @@ const Main = () => {
   const [foodItem, setFoodItem] = useState<string[]>([]);
   const [selected, setSelected] = useState<string[]>([]);
   const [active, setActive] = useState<boolean>(false);
+  const [result, setResult] = useState<string>("");
 
   const userName = auth.currentUser?.displayName;
   const path = useNavigate();
@@ -46,6 +47,10 @@ const Main = () => {
   console.log(selected);
 
   const setFoodValue = (e: React.ChangeEvent<HTMLInputElement>) => setUserFood(e.target.value);
+
+  const randomArrResult = () => {
+    console.log(selected[Math.floor(Math.random() * selected.length)]);
+  };
 
   return (
     <div className={styles.Main_wrap}>
@@ -100,7 +105,7 @@ const Main = () => {
           </div>
         </div>
         <div className={styles.Main_food_randomResult}>
-          <button>결과 확인하기</button>
+          <button onClick={randomArrResult}>결과 확인하기</button>
         </div>
       </div>
     </div>
