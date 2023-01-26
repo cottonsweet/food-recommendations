@@ -16,6 +16,7 @@ const Main = () => {
   const itemFoodListClearBtn = () => {
     setFoodItem([]);
     setSelected([]);
+    return;
   };
 
   const setItem = (value: string) => setSelected((prev) => [...prev, value]);
@@ -31,8 +32,10 @@ const Main = () => {
     setUserFood("");
   };
 
-  const selectedFoodItem = (e: React.MouseEvent<HTMLDivElement>) => {
-    const value = (e.target as HTMLElement).textContent;
+  const selectedFoodItem = (e: React.MouseEvent<HTMLElement>) => {
+    const value = String((e.target as HTMLElement).textContent);
+    const indexLocation = selected.indexOf(value);
+    indexLocation === -1 ? setItem(value) : selected.splice(indexLocation, 1);
   };
 
   const setFoodValue = (e: React.ChangeEvent<HTMLInputElement>) => setUserFood(e.target.value);
@@ -67,7 +70,7 @@ const Main = () => {
           </div>
           <div className={styles.foodItem_header}>
             <div className={styles.foodItem_itemLength}>
-              선택된 음식 - {selected.length} 헐 {foodItem.length}
+              선택된 음식 - {selected.length} / {foodItem.length}
             </div>
             <span onClick={itemFoodListClearBtn} className={styles.foodItem_itemClear__btn}>
               초기화
