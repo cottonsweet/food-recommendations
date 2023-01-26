@@ -3,11 +3,13 @@ import React, { useState } from "react";
 import { auth } from "../Auth";
 import styles from "../styles/components/Main.module.css";
 import { HiCog } from "react-icons/hi";
+import { AiOutlineCheckCircle } from "react-icons/ai";
 
 const Main = () => {
   const [userFood, setUserFood] = useState("");
   const [foodItem, setFoodItem] = useState<string[]>([]);
   const [selected, setSelected] = useState<string[]>([]);
+  const [active, setActive] = useState<boolean>(false);
 
   const userName = auth.currentUser?.displayName;
   const path = useNavigate();
@@ -18,8 +20,6 @@ const Main = () => {
     setSelected([]);
     return;
   };
-
-  const setItem = (value: string) => setSelected((prev) => [...prev, value]);
 
   const onSubmitFood = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,11 +32,15 @@ const Main = () => {
     setUserFood("");
   };
 
+  const setItem = (value: string) => setSelected((prev) => [...prev, value]);
+
   const selectedFoodItem = (e: React.MouseEvent<HTMLElement>) => {
     const value = String((e.target as HTMLElement).textContent);
     const indexLocation = selected.indexOf(value);
     indexLocation === -1 ? setItem(value) : selected.splice(indexLocation, 1);
   };
+
+  console.log(selected);
 
   const setFoodValue = (e: React.ChangeEvent<HTMLInputElement>) => setUserFood(e.target.value);
 
@@ -82,6 +86,9 @@ const Main = () => {
                 <div onClick={selectedFoodItem} key={i} className={styles.foodItem__list}>
                   <span className={styles.foodItem__list__number}>{i + 1}</span>
                   <span className={styles.foodItem__list__item}>{a}</span>
+                  <span>
+                    <AiOutlineCheckCircle className={`${styles.foodItem__list__icon} ${active ? styles.active : ""}`} />
+                  </span>
                 </div>
               );
             })}

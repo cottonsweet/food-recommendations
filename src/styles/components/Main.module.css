@@ -149,6 +149,13 @@
   background-color: #efefef;
 }
 
+.foodItem__list__icon {
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+  color: grey;
+}
+
 .Main_food_randomResult {
   display: flex;
   justify-content: center;
@@ -166,4 +173,8 @@
   border: none;
   border-radius: 15px;
   background-color: #ffde6a;
+}
+
+.active {
+  color: black;
 }
