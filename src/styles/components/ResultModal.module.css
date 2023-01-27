@@ -42,11 +42,16 @@
 }
 
 .ModalTitle {
-  margin-top: 20px;
+  margin-top: 50px;
   font-size: 30px;
   font-weight: bold;
 }
 
 .ModalResultFood {
   margin-top: 20px;
+  font-size: 22px;
+}
+
+.ModalFoodDesc {
+  margin-top: 50px;
 }

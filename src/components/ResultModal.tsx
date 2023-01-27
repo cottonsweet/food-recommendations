@@ -16,7 +16,8 @@ const ResultModal = (props: Good) => {
     <div className={styles.ModalWrap}>
       <div className={styles.ModalContent}>
         <div className={styles.ModalTitle}>당첨된 음식</div>
-        <div className={styles.ModalResultFood}>{props.result}</div>
+        <div className={styles.ModalResultFood}>"{props.result}"</div>
+        <div className={styles.ModalFoodDesc}>맛있게 먹으소 ㅅㄱ</div>
       </div>
     </div>
   );
