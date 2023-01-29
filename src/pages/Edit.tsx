@@ -11,8 +11,10 @@ const Edit = () => {
   const path = useNavigate();
   const handleMainBtn = () => path("/");
 
+  /** 닉네임 변경 Input 값 저장하는 함수 */
   const changeUserName = (e: React.FormEvent<HTMLInputElement>) => setNewUserName((e.target as HTMLFormElement).value);
 
+  /** 닉네임 변경함수 */
   const updateProfileNickName = async () => {
     if (newUserName === userName) return alert("기존 닉네임과 동일하게 변경은 불가합니다 !");
     if (newUserName === "") return alert("공백은 불가합니다 !");
@@ -27,6 +29,7 @@ const Edit = () => {
     }
   };
 
+  /** 로그아웃 기능 함수 */
   const handleLogOutBtn = async () => {
     if (window.confirm("로그아웃 하시겠습니까 ?")) {
       try {
