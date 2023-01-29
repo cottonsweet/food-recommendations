@@ -17,6 +17,7 @@ const Main = () => {
   const path = useNavigate();
   const handleEditBtn = () => path("/edit");
 
+  /** 배열 초기화 함수 */
   const itemFoodListClearBtn = () => {
     setFoodItem([]);
     setSelected([]);
@@ -24,6 +25,7 @@ const Main = () => {
     return;
   };
 
+  /** Input 값 form 전송함수 */
   const onSubmitFood = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (userFood === "") return alert("공백은 금지 입니다.");
@@ -40,24 +42,22 @@ const Main = () => {
   const selectedFoodItem = (e: React.MouseEvent<HTMLElement>) => {
     const value = String((e.target as HTMLElement).textContent);
     const indexLocation = selected.indexOf(value);
+
     indexLocation === -1 ? setItem(value) : selected.splice(indexLocation, 1);
 
     /** 문제점 : active state의 조건문이 없을경우 선택한 배열값이 실시간 렌더링이 제대로 되지가 않는 현상이 확인 됨 */
     active ? setActive(false) : setActive(true);
   };
 
-  console.log(selected);
-
+  /** 사용자 Input 값 저장하는 함수 */
   const setFoodValue = (e: React.ChangeEvent<HTMLInputElement>) => setUserFood(e.target.value);
 
-  const randomArrResult = () => {
-    setResult(selected[Math.floor(Math.random() * selected.length)]);
-    console.log(typeof selected[Math.floor(Math.random() * selected.length)]);
-  };
-
+  /** 랜덤배열 결과값 출력 함수 */
+  const randomArrResult = () => setResult(selected[Math.floor(Math.random() * selected.length)]);
   return (
     <div className={styles.Main_wrap}>
       {result ? <ResultModal result={result} /> : null}
+
       <div className={styles.Main}>
         <div className={styles.Main_header}>
           <div className={styles.Main_menu_header}>
