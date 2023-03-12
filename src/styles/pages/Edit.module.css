@@ -82,6 +82,15 @@
   margin: 20px 0;
 }
 
+.Edit_profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
+}
+
 .Edit_profile > span {
   padding: 10px 15px;
   font-size: 15px;
@@ -89,6 +98,7 @@
   border-radius: 5px;
   margin-right: 10px;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .Edit_profile > input {
@@ -97,11 +107,12 @@
   border-radius: 5px;
   background-color: #efefef;
   padding: 10px;
-  border: none;
+  border: 1px solid white;
 }
 
 .Edit_profile > input:focus {
   outline: none;
+  border: 1px solid bisque;
 }
 
 .Edit_profile > input::placeholder {
@@ -109,13 +120,13 @@
 }
 
 .Edit_logOut {
-  height: 35px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 370px;
+  margin-top: 290px;
   background-color: orange;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
   font-weight: bold;
   font-size: 15px;

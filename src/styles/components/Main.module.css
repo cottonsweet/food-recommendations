@@ -176,6 +176,10 @@
   background-color: #ffde6a;
 }
 
-.active {
-  color: black;
+.foodItem__list__selected {
+  background-color: grey;
+}
+
+.foodItem__list__selected__icon {
+  color: white;
 }
