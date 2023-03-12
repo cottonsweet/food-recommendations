@@ -10,8 +10,8 @@ const Main = () => {
   const [userFood, setUserFood] = useState("");
   const [foodItem, setFoodItem] = useState<string[]>([]);
   const [selected, setSelected] = useState<string[]>([]);
-  const [active, setActive] = useState<boolean>(false);
   const [result, setResult] = useState<string>("");
+  const [modal, setModal] = useState<boolean>(false);
 
   const userName = auth.currentUser?.displayName;
   const path = useNavigate();
@@ -37,26 +37,40 @@ const Main = () => {
     setUserFood("");
   };
 
-  const setItem = (value: string) => setSelected((prev) => [...prev, value]);
+  const setItem = (value: string) => setSelected((selected) => [...selected, value]);
 
   const selectedFoodItem = (e: React.MouseEvent<HTMLElement>) => {
     const value = String((e.target as HTMLElement).textContent);
     const indexLocation = selected.indexOf(value);
 
-    indexLocation === -1 ? setItem(value) : selected.splice(indexLocation, 1);
-
-    /** 문제점 : active state의 조건문이 없을경우 선택한 배열값이 실시간 렌더링이 제대로 되지가 않는 현상이 확인 됨 */
-    active ? setActive(false) : setActive(true);
+    if (indexLocation === -1) {
+      return setItem(value);
+    } else {
+      selected.splice(indexLocation, 1);
+      setSelected([...selected]);
+      return;
+    }
   };
 
   /** 사용자 Input 값 저장하는 함수 */
   const setFoodValue = (e: React.ChangeEvent<HTMLInputElement>) => setUserFood(e.target.value);
 
   /** 랜덤배열 결과값 출력 함수 */
-  const randomArrResult = () => setResult(selected[Math.floor(Math.random() * selected.length)]);
+  const randomArrResult = () => {
+    if (selected.length === 0) return alert("선택된 음식이 없어요 !");
+    if (selected.length === 1) return alert("음식은 2개이상 선택해주셔야 합니다 !");
+    const resultFoodData = selected[Math.floor(Math.random() * selected.length)];
+    setModal(true);
+    setResult(resultFoodData);
+    setFoodItem([]);
+    setSelected([]);
+  };
+
+  const isInAcitivyModal = () => setModal((prev) => !prev);
+
   return (
     <div className={styles.Main_wrap}>
-      {result ? <ResultModal result={result} /> : null}
+      {modal && <ResultModal result={result} isInAcitivyModal={isInAcitivyModal} />}
 
       <div className={styles.Main}>
         <div className={styles.Main_header}>
@@ -95,12 +109,12 @@ const Main = () => {
           <div className={styles.foodItem}>
             {foodItem?.map((a, i) => {
               return (
-                <div onClick={selectedFoodItem} key={i} className={styles.foodItem__list}>
+                <div onClick={selectedFoodItem} key={i} className={`${styles.foodItem__list}`}>
                   <span className={styles.foodItem__list__number}>{i + 1}</span>
-                  <span className={styles.foodItem__list__item}>
+                  <span className={`${styles.foodItem__list__item} ${selected.includes(a) ? styles.foodItem__list__selected : ""}`}>
                     {a}
                     <span>
-                      <AiOutlineCheckCircle className={`${styles.foodItem__list__icon} ${active ? styles.active : ""}`} />
+                      <AiOutlineCheckCircle className={`${styles.foodItem__list__icon} ${selected.includes(a) ? styles.foodItem__list__selected__icon : ""}`} />
                     </span>
                   </span>
                 </div>
