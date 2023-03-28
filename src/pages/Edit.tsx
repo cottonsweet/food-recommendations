@@ -23,6 +23,7 @@ const Edit = () => {
         await updateProfile(auth.currentUser, {
           displayName: newUserName,
         });
+        alert("닉네임이 변경되었습니다.")
       } catch (error) {
         console.log(error);
       }

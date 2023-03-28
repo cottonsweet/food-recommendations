@@ -1,4 +1,4 @@
-@keyframes fadeInBottomToTop {
+/* @keyframes fadeInBottomToTop {
   0% {
     opacity: 0;
     transform: translate3d(0, 20%, 0);
@@ -7,17 +7,17 @@
     opacity: 1;
     transform: translateZ(0);
   }
-}
+} */
 
-.home_wrap {
+/* .home_wrap {
   width: 100%;
   height: 100vh;
   position: relative;
   background-color: slategray;
   overflow-y: auto;
-}
+} */
 
-.home_img_box {
+/* .home_img_box {
   padding-top: 30px;
   text-align: center;
   position: absolute;
@@ -28,9 +28,9 @@
   width: 450px;
   height: 700px;
   border-radius: 5px;
-}
+} */
 
-.home_title {
+/* .home_title {
   position: relative;
   text-align: center;
   color: white;
@@ -55,8 +55,8 @@
   position: relative;
   top: 7rem;
   right: 30px;
-}
-
+} */
+/* 
 .home_login_join {
   display: flex;
   justify-content: space-between;
@@ -98,5 +98,6 @@
   margin-left: 5px;
   border-radius: 5px;
   background-color: #ffffff;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-}
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+} */

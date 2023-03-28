@@ -1,0 +1,53 @@
+@keyframes fadeInBottomToTop {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.account {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  color: black;
+  position: absolute;
+  bottom: 0;
+  font-weight: bold;
+  background-color: #ffffff;
+  padding: 0 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  animation: fadeInBottomToTop 1s ease;
+}
+
+.account > div:first-child {
+  width: 50%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 5px;
+  border-radius: 5px;
+  background-color: #ffde6a;
+}
+
+.account > div:last-child {
+  width: 50%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 5px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}

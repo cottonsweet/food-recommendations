@@ -16,9 +16,9 @@ const Join = () => {
   const handleLoginBtn = () => path("/login");
 
   // Input값의 이벤트 발생시, 사용자가 입력한 값을 받아온다.
-  const setUserInfo = (e: React.FormEvent<HTMLInputElement>) => {
-    const name = (e.target as HTMLFormElement).name;
-    const value = (e.target as HTMLFormElement).value;
+  const setUserInfo = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    const name = e.target.name;
 
     if (name === "username") {
       setUserName(value);

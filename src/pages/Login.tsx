@@ -6,6 +6,10 @@ import { auth } from "../Auth";
 import backGroundImg from "../assets/backGround.jpg";
 import styles from "../styles/pages/Login.module.css";
 
+// components
+import BackGroundImg from "../components/UI/BackGround/BackGroundImg";
+import HeaderTitle from "../components/Header/HeaderTitle";
+
 const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -45,14 +49,8 @@ const Login = () => {
   return (
     <div className={styles.login_wrap}>
       <div className={styles.login_main}>
-        <div className={styles.login_img_box}>
-          <img className={styles.login_img} src={backGroundImg} />
-        </div>
-        <div className={styles.login_title}>
-          <div>오늘,</div>
-          <span>뭘</span>
-          <span>먹을까?</span>
-        </div>
+        <BackGroundImg />
+        <HeaderTitle />
         <div className={styles.login_section}>
           <div className={styles.login_section_wrap}>
             <div onClick={handleCancleBtn} className={styles.login_cancle__btn}>
@@ -62,8 +60,20 @@ const Login = () => {
           </div>
           <div className={styles.login_user_wrap}>
             <form onSubmit={handleSubmitLoginBtn} className={styles.login_form}>
-              <input type="text" name="email" onChange={onChangeInputValue} className={styles.login_email} placeholder="이메일 주소" />
-              <input type="password" name="password" onChange={onChangeInputValue} className={styles.login_password} placeholder="비밀번호" />
+              <input
+                type="text"
+                name="email"
+                onChange={onChangeInputValue}
+                className={styles.login_email}
+                placeholder="이메일 주소"
+              />
+              <input
+                type="password"
+                name="password"
+                onChange={onChangeInputValue}
+                className={styles.login_password}
+                placeholder="비밀번호"
+              />
               <button onClick={handleLoginBtn} className={styles.login_btn}>
                 로그인
               </button>

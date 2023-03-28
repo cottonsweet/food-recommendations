@@ -1,0 +1,26 @@
+.header_title {
+  position: relative;
+  text-align: center;
+  color: white;
+  font-size: 33px;
+  font-weight: bold;
+}
+
+.header_title > div {
+  position: relative;
+  top: 7rem;
+  right: 80px;
+}
+
+.header_title > :nth-child(2) {
+  position: relative;
+  top: 7rem;
+  right: 43px;
+  font-size: 40px;
+}
+
+.header_title :last-child {
+  position: relative;
+  top: 7rem;
+  right: 30px;
+}

@@ -4,7 +4,7 @@ import { auth } from "../Auth";
 import styles from "../styles/components/Main.module.css";
 import { HiCog } from "react-icons/hi";
 import { AiOutlineCheckCircle } from "react-icons/ai";
-import ResultModal from "./ResultModal";
+import ResultModal from "../components/ResultModal";
 
 const Main = () => {
   const [userFood, setUserFood] = useState("");
@@ -37,7 +37,8 @@ const Main = () => {
     setUserFood("");
   };
 
-  const setItem = (value: string) => setSelected((selected) => [...selected, value]);
+  const setItem = (value: string) =>
+    setSelected((selected) => [...selected, value]);
 
   const selectedFoodItem = (e: React.MouseEvent<HTMLElement>) => {
     const value = String((e.target as HTMLElement).textContent);
@@ -53,13 +54,16 @@ const Main = () => {
   };
 
   /** 사용자 Input 값 저장하는 함수 */
-  const setFoodValue = (e: React.ChangeEvent<HTMLInputElement>) => setUserFood(e.target.value);
+  const setFoodValue = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setUserFood(e.target.value);
 
   /** 랜덤배열 결과값 출력 함수 */
   const randomArrResult = () => {
     if (selected.length === 0) return alert("선택된 음식이 없어요 !");
-    if (selected.length === 1) return alert("음식은 2개이상 선택해주셔야 합니다 !");
-    const resultFoodData = selected[Math.floor(Math.random() * selected.length)];
+    if (selected.length === 1)
+      return alert("음식은 2개이상 선택해주셔야 합니다 !");
+    const resultFoodData =
+      selected[Math.floor(Math.random() * selected.length)];
     setModal(true);
     setResult(resultFoodData);
     setFoodItem([]);
@@ -70,7 +74,9 @@ const Main = () => {
 
   return (
     <div className={styles.Main_wrap}>
-      {modal && <ResultModal result={result} isInAcitivyModal={isInAcitivyModal} />}
+      {modal && (
+        <ResultModal result={result} isInAcitivyModal={isInAcitivyModal} />
+      )}
 
       <div className={styles.Main}>
         <div className={styles.Main_header}>
@@ -81,17 +87,26 @@ const Main = () => {
               <span>먹을까?</span>
             </div>
             <div className={styles.Main_header__info}>
-              <span onClick={handleEditBtn} className={styles.Main_header__setting_btn}>
+              <span
+                onClick={handleEditBtn}
+                className={styles.Main_header__setting_btn}
+              >
                 <HiCog />
               </span>
             </div>
           </div>
-          <div className={styles.Main_header__userName}>{userName}님, 반갑습니다.</div>
+          <div className={styles.Main_header__userName}>
+            {userName}님, 반갑습니다.
+          </div>
         </div>
         <div className={styles.Main_user_food}>
           <div>오늘은 어떤 음식을 드시고 싶으세요?</div>
           <form onSubmit={onSubmitFood}>
-            <input onChange={setFoodValue} value={userFood} placeholder="음식 이름을 여기에 입력 해주세요!" />
+            <input
+              onChange={setFoodValue}
+              value={userFood}
+              placeholder="음식 이름을 여기에 입력 해주세요!"
+            />
           </form>
         </div>
         <div className={styles.Main_food_wrap}>
@@ -102,19 +117,38 @@ const Main = () => {
             <div className={styles.foodItem_itemLength}>
               선택된 음식 - {selected.length} / {foodItem.length}
             </div>
-            <span onClick={itemFoodListClearBtn} className={styles.foodItem_itemClear__btn}>
+            <span
+              onClick={itemFoodListClearBtn}
+              className={styles.foodItem_itemClear__btn}
+            >
               초기화
             </span>
           </div>
           <div className={styles.foodItem}>
             {foodItem?.map((a, i) => {
               return (
-                <div onClick={selectedFoodItem} key={i} className={`${styles.foodItem__list}`}>
+                <div
+                  onClick={selectedFoodItem}
+                  key={i}
+                  className={`${styles.foodItem__list}`}
+                >
                   <span className={styles.foodItem__list__number}>{i + 1}</span>
-                  <span className={`${styles.foodItem__list__item} ${selected.includes(a) ? styles.foodItem__list__selected : ""}`}>
+                  <span
+                    className={`${styles.foodItem__list__item} ${
+                      selected.includes(a)
+                        ? styles.foodItem__list__selected
+                        : ""
+                    }`}
+                  >
                     {a}
                     <span>
-                      <AiOutlineCheckCircle className={`${styles.foodItem__list__icon} ${selected.includes(a) ? styles.foodItem__list__selected__icon : ""}`} />
+                      <AiOutlineCheckCircle
+                        className={`${styles.foodItem__list__icon} ${
+                          selected.includes(a)
+                            ? styles.foodItem__list__selected__icon
+                            : ""
+                        }`}
+                      />
                     </span>
                   </span>
                 </div>
