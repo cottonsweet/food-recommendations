@@ -1,21 +1,25 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+// Firebase
 import {
   createUserWithEmailAndPassword,
   updateProfile,
   User,
 } from "firebase/auth";
 import { auth } from "../Auth";
-import styles from "../styles/pages/Join.module.css";
 
-// components
+// CSS
+import classes from "./Join.module.css";
+
+// Components
 import BackGroundImg from "../components/UI/BackGround/BackGroundImg";
 import AccountSection from "../components/UI/BackGround/Account/AccountSection";
 import HeaderTitle from "../components/Header/HeaderTitle";
 import AccountModalHeader from "../components/Header/AccountHeader/AccountModalHeader";
 import BackBtn from "../components/UI/Button/BackBtn";
 import AccountBtn from "../components/UI/Button/AccountBtn";
-import UserForm from "../components/UI/Input/UserForm";
+import UserJoinForm from "../components/UI/Input/UserJoinForm";
 
 const Join = () => {
   const [userName, setUserName] = useState<string>("");
@@ -91,7 +95,7 @@ const Join = () => {
             title="서비스 회원가입"
           />
         </AccountModalHeader>
-        <UserForm
+        <UserJoinForm
           handleSubmitAccountJoin={handleSubmitAccountJoin}
           setUserInfo={setUserInfo}
         />
@@ -100,15 +104,14 @@ const Join = () => {
           onClick={handleBtnAccountJoin}
           title="회원가입"
         />
-        <div className={styles.errorMsg}>{errorMsg ? errorMsg : null}</div>
+        <div className={classes.errorMsg}>{errorMsg ? errorMsg : null}</div>
 
-        <div className={styles.join_defaultLogin_wrap}>
-          <span
+        <div>
+          <AccountBtn
             onClick={handleLoginBtn}
-            className={styles.join_defaultLogin_btn}
-          >
-            이미 가입하신 계정이 있으신가요 ?
-          </span>
+            className="join_defaultLogin_wrap"
+            title="이미 가입하신 계정이 있으신가요 ?"
+          />
         </div>
       </AccountSection>
     </>

@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-
 import { useNavigate } from "react-router-dom";
+
+// Firebase
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Auth";
-import backGroundImg from "../assets/backGround.jpg";
-import styles from "../styles/pages/Login.module.css";
 
-// components
+// Components
 import BackGroundImg from "../components/UI/BackGround/BackGroundImg";
 import HeaderTitle from "../components/Header/HeaderTitle";
+import AccountModalHeader from "../components/Header/AccountHeader/AccountModalHeader";
+import AccountSection from "../components/UI/BackGround/Account/AccountSection";
+import AccountBtn from "../components/UI/Button/AccountBtn";
+import BackBtn from "../components/UI/Button/BackBtn";
+import UserLoginForm from "../components/UI/Input/UserLoinForm";
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
@@ -18,6 +22,7 @@ const Login = () => {
   const handleCancleBtn = () => path("/");
   const handleJoinBtn = () => path("/join");
 
+  // 사용자 Input 값 확인
   const onChangeInputValue = (e: React.FormEvent<HTMLInputElement>) => {
     const name = (e.target as HTMLFormElement).name;
     const value = (e.target as HTMLFormElement).value;
@@ -26,16 +31,7 @@ const Login = () => {
     if (name === "password") return setPassword(value);
   };
 
-  const handleLoginBtn = async (e: React.FormEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      handleCancleBtn();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+  // 로그인 submit 함수
   const handleSubmitLoginBtn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
@@ -46,47 +42,47 @@ const Login = () => {
     }
   };
 
+  // 로그인 버튼
+  const handleLoginBtn = async () => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      handleCancleBtn();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
-    <div className={styles.login_wrap}>
-      <div className={styles.login_main}>
-        <BackGroundImg />
-        <HeaderTitle />
-        <div className={styles.login_section}>
-          <div className={styles.login_section_wrap}>
-            <div onClick={handleCancleBtn} className={styles.login_cancle__btn}>
-              돌아가기
-            </div>
-            <div className={styles.login_section__login}>로그인</div>
-          </div>
-          <div className={styles.login_user_wrap}>
-            <form onSubmit={handleSubmitLoginBtn} className={styles.login_form}>
-              <input
-                type="text"
-                name="email"
-                onChange={onChangeInputValue}
-                className={styles.login_email}
-                placeholder="이메일 주소"
-              />
-              <input
-                type="password"
-                name="password"
-                onChange={onChangeInputValue}
-                className={styles.login_password}
-                placeholder="비밀번호"
-              />
-              <button onClick={handleLoginBtn} className={styles.login_btn}>
-                로그인
-              </button>
-            </form>
-          </div>
-          <div className={styles.login_create_wrap}>
-            <span onClick={handleJoinBtn} className={styles.login_create_btn}>
-              가입하신 계정이 없으신가요 ?
-            </span>
-          </div>
+    <>
+      <BackGroundImg />
+      <HeaderTitle />
+      <AccountSection>
+        <AccountModalHeader className="account_modal_header">
+          <BackBtn
+            onClick={handleCancleBtn}
+            className="back_btn"
+            title="돌아가기"
+          />
+          <AccountModalHeader className="login_section__login" title="로그인" />
+        </AccountModalHeader>
+        <UserLoginForm
+          onChangeInputValue={onChangeInputValue}
+          handleSubmitLoginBtn={handleSubmitLoginBtn}
+        />
+        <div>
+          <AccountBtn
+            className="account__join_btn"
+            onClick={handleLoginBtn}
+            title="회원가입"
+          />
+          <AccountBtn
+            onClick={handleLoginBtn}
+            className="join_defaultLogin_wrap"
+            title="가입하신 계정이 없으신가요 ?"
+          />
         </div>
-      </div>
-    </div>
+      </AccountSection>
+    </>
   );
 };
 

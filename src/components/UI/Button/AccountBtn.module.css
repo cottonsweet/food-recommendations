@@ -14,3 +14,10 @@
   right: 3px;
   margin-top: 10px;
 }
+
+.join_defaultLogin_wrap {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.7);
+}

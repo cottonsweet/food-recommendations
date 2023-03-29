@@ -7,7 +7,7 @@ interface Props {
   handleSubmitAccountJoin?: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
-const UserForm = (props: Props) => {
+const UserJoinForm = (props: Props) => {
   return (
     <div>
       <form onSubmit={props.handleSubmitAccountJoin}>
@@ -44,4 +44,4 @@ const UserForm = (props: Props) => {
   );
 };
 
-export default UserForm;
+export default UserJoinForm;
