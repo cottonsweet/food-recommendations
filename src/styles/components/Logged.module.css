@@ -8,26 +8,7 @@
   cursor: pointer;
 }
 
-.Main_user_food {
-  text-align: center;
-  font-weight: bold;
-  margin-top: 20px;
-  background-color: white;
-}
 
-.Main_user_food > form > input {
-  width: 400px;
-  height: 40px;
-  padding: 10px;
-  box-sizing: border-box;
-  margin-top: 15px;
-  border: 2px solid orange;
-  border-radius: 7px;
-}
-
-.Main_user_food > form > input:focus {
-  outline: none;
-}
 
 .Main_food_wrap {
   height: 294px;

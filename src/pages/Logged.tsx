@@ -18,6 +18,7 @@ import HeaderTitle from "../components/Header/HeaderTitle";
 import SettingIcons from "../components/UI/Icon/SettingIcon";
 import ResultModal from "../components/ResultModal";
 import AccountModalHeader from "../components/Header/AccountHeader/AccountModalHeader";
+import FoodSection from "../components/Food/FoodSection";
 import AccountBtn from "../components/UI/Button/AccountBtn";
 
 const Logged = () => {
@@ -108,16 +109,14 @@ const Logged = () => {
 
         {/* -------------------------------------------------------------------------------------------------- */}
 
-        <div className={styles.Main_user_food}>
+        <FoodSection
+          className="food_section"
+          onSubmit={onSubmitFood}
+          onChange={setFoodValue}
+          userFood={userFood}
+        >
           <div>오늘은 어떤 음식을 드시고 싶으세요?</div>
-          <form onSubmit={onSubmitFood}>
-            <input
-              onChange={setFoodValue}
-              value={userFood}
-              placeholder="음식 이름을 여기에 입력 해주세요!"
-            />
-          </form>
-        </div>
+        </FoodSection>
         <div className={styles.Main_food_wrap}>
           <div className={styles.Main_food__manual}>
             <span>오늘, 뭘 먹을래? 이용방법!</span>
