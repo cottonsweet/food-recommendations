@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <Wrapper>
       <BackGroundImg />
-      <HeaderTitle />
+      <HeaderTitle className="header_title" />
       <AccountContainer />
     </Wrapper>
   );

@@ -24,3 +24,12 @@
   top: 7rem;
   right: 30px;
 }
+
+.Logged_header__title :nth-child(2) {
+  font-size: 25px;
+}
+
+.Logged_header__title :last-child {
+  position: relative;
+  bottom: 2px;
+}

@@ -1,56 +1,11 @@
-.Main_wrap {
+.Logged {
   width: 100%;
   height: 100vh;
-  position: relative;
-  overflow-y: scroll;
-  background-color: slategray;
-}
-
-.Main {
-  width: 430px;
-  height: 700px;
-  border-radius: 5px;
-  background-color: #ffffff;
-  margin: 30px auto 30px auto;
-}
-
-.Main_header {
-  background-color: #efefef;
-  height: 130px;
-  border-radius: 5px;
-}
-
-.Main_menu_header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: bold;
-  padding: 25px 25px 10px 25px;
-  box-sizing: border-box;
-}
-
-.Main_header__title :nth-child(2) {
-  font-size: 25px;
-}
-
-.Main_header__title :last-child {
-  position: relative;
-  bottom: 2px;
-}
-
-.Main_header__info {
-  display: flex;
 }
 
 .Main_header__setting_btn {
   font-size: 25px;
   cursor: pointer;
-}
-
-.Main_header__userName {
-  text-align: center;
-  font-weight: bold;
-  font-size: 25px;
 }
 
 .Main_user_food {
@@ -91,9 +46,6 @@
   font-weight: bold;
 }
 
-.foodItem_itemClear__btn {
-  cursor: pointer;
-}
 
 .foodItem_header {
   margin-bottom: 10px;
@@ -155,25 +107,6 @@
   display: flex;
   align-items: center;
   color: grey;
-}
-
-.Main_food_randomResult {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80px;
-  margin-top: 40px;
-}
-
-.Main_food_randomResult > button {
-  width: 400px;
-  height: 40px;
-  font-weight: bold;
-  text-align: center;
-  cursor: pointer;
-  border: none;
-  border-radius: 15px;
-  background-color: #ffde6a;
 }
 
 .foodItem__list__selected {

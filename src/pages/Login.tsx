@@ -55,7 +55,7 @@ const Login = () => {
   return (
     <>
       <BackGroundImg />
-      <HeaderTitle />
+      <HeaderTitle className="header_title" />
       <AccountSection>
         <AccountModalHeader className="account_modal_header">
           <BackBtn
@@ -73,7 +73,7 @@ const Login = () => {
           <AccountBtn
             className="account__join_btn"
             onClick={handleLoginBtn}
-            title="회원가입"
+            title="로그인"
           />
           <AccountBtn
             onClick={handleLoginBtn}

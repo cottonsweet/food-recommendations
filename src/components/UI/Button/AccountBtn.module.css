@@ -21,3 +21,13 @@
   font-size: 14px;
   color: rgba(0, 0, 0, 0.7);
 }
+
+.food_randomResult {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  margin: 40px 20px 0 20px;
+  border-radius: 10px;
+  background-color: #ffde6a;
+}

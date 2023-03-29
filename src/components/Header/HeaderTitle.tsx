@@ -1,8 +1,12 @@
-import styles from "./HeaderTitle.module.css";
+import classes from "./HeaderTitle.module.css";
 
-const HeaderTitle = () => {
+interface Props {
+  className?: string;
+}
+
+const HeaderTitle = (props: Props) => {
   return (
-    <div className={styles.header_title}>
+    <div className={`${classes[props.className || ""]}`}>
       <div>오늘,</div>
       <span>뭘</span>
       <span>먹을까?</span>

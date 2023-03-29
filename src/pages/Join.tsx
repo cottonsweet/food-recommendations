@@ -82,7 +82,7 @@ const Join = () => {
   return (
     <>
       <BackGroundImg />
-      <HeaderTitle />
+      <HeaderTitle className="header_title" />
       <AccountSection>
         <AccountModalHeader className="account_modal_header">
           <BackBtn

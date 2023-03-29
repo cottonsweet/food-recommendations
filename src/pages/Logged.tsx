@@ -1,12 +1,26 @@
-import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+// Firebase
 import { auth } from "../Auth";
-import styles from "../styles/components/Main.module.css";
+
+// Icons
 import { HiCog } from "react-icons/hi";
 import { AiOutlineCheckCircle } from "react-icons/ai";
-import ResultModal from "../components/ResultModal";
 
-const Main = () => {
+// CSS
+import styles from "../styles/components/Logged.module.css";
+
+// Components
+import HeaderWrap from "../components/Header/HeaderWrapper/HeaderWrap";
+import HeaderText from "../components/Header/HeaderWrapper/HeaderText";
+import HeaderTitle from "../components/Header/HeaderTitle";
+import SettingIcons from "../components/UI/Icon/SettingIcon";
+import ResultModal from "../components/ResultModal";
+import AccountModalHeader from "../components/Header/AccountHeader/AccountModalHeader";
+import AccountBtn from "../components/UI/Button/AccountBtn";
+
+const Logged = () => {
   const [userFood, setUserFood] = useState("");
   const [foodItem, setFoodItem] = useState<string[]>([]);
   const [selected, setSelected] = useState<string[]>([]);
@@ -15,6 +29,8 @@ const Main = () => {
 
   const userName = auth.currentUser?.displayName;
   const path = useNavigate();
+
+  // 설정으로 이동
   const handleEditBtn = () => path("/edit");
 
   /** 배열 초기화 함수 */
@@ -73,32 +89,25 @@ const Main = () => {
   const isInAcitivyModal = () => setModal((prev) => !prev);
 
   return (
-    <div className={styles.Main_wrap}>
+    <>
       {modal && (
         <ResultModal result={result} isInAcitivyModal={isInAcitivyModal} />
       )}
 
-      <div className={styles.Main}>
-        <div className={styles.Main_header}>
-          <div className={styles.Main_menu_header}>
-            <div className={styles.Main_header__title}>
-              <div>오늘,</div>
-              <span>뭘 </span>
-              <span>먹을까?</span>
-            </div>
-            <div className={styles.Main_header__info}>
-              <span
-                onClick={handleEditBtn}
-                className={styles.Main_header__setting_btn}
-              >
-                <HiCog />
-              </span>
-            </div>
-          </div>
-          <div className={styles.Main_header__userName}>
-            {userName}님, 반갑습니다.
-          </div>
-        </div>
+      <div className={styles.Logged}>
+        <HeaderWrap className="Header_wrap">
+          <HeaderText className="Header_menu_Text">
+            <HeaderTitle className="Logged_header__title" />
+            <SettingIcons onClick={handleEditBtn} />
+          </HeaderText>
+          <AccountModalHeader
+            className={"Logged_header__userName"}
+            title={`${userName}님, 반갑습니다.`}
+          />
+        </HeaderWrap>
+
+        {/* -------------------------------------------------------------------------------------------------- */}
+
         <div className={styles.Main_user_food}>
           <div>오늘은 어떤 음식을 드시고 싶으세요?</div>
           <form onSubmit={onSubmitFood}>
@@ -117,12 +126,7 @@ const Main = () => {
             <div className={styles.foodItem_itemLength}>
               선택된 음식 - {selected.length} / {foodItem.length}
             </div>
-            <span
-              onClick={itemFoodListClearBtn}
-              className={styles.foodItem_itemClear__btn}
-            >
-              초기화
-            </span>
+            <AccountBtn onClick={itemFoodListClearBtn} title="초기화" />
           </div>
           <div className={styles.foodItem}>
             {foodItem?.map((a, i) => {
@@ -156,12 +160,14 @@ const Main = () => {
             })}
           </div>
         </div>
-        <div className={styles.Main_food_randomResult}>
-          <button onClick={randomArrResult}>결과 확인하기</button>
-        </div>
+        <AccountBtn
+          onClick={randomArrResult}
+          className="food_randomResult"
+          title="결과 확인하기"
+        />
       </div>
-    </div>
+    </>
   );
 };
 
-export default Main;
+export default Logged;
