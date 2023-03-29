@@ -75,16 +75,11 @@
   animation: fadeInBottomToTop 1s ease;
 } */
 
-.join_cancle__btn {
+/* .join_cancle__btn {
   text-align: end;
   color: rgba(0, 0, 0, 0.4);
   cursor: pointer;
-}
-
-.join_section__login {
-  text-align: center;
-  font-size: 25px;
-}
+} */
 
 .join_name,
 .join_email,
@@ -112,19 +107,6 @@
   border: 1px solid orange;
 }
 
-.join_btn {
-  width: 395px;
-  height: 45px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  font-size: 17px;
-  font-weight: bold;
-  background-color: #ffde6a;
-  position: relative;
-  right: 3px;
-  margin-top: 10px;
-}
 
 .errorMsg {
   color: red;

@@ -1,14 +1,18 @@
 // CSS
-import styled from "./BackBtn.module.css";
+import classes from "./BackBtn.module.css";
 
 interface Props {
   title: string;
+  className: string;
   onClick: () => void;
 }
 
 const BackBtn = (props: Props) => {
   return (
-    <div className={styled.back_btn} onClick={props.onClick}>
+    <div
+      className={`${classes[props.className || ""]}`}
+      onClick={props.onClick}
+    >
       {props.title}
     </div>
   );

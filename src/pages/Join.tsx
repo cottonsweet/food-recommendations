@@ -14,6 +14,8 @@ import AccountSection from "../components/UI/BackGround/Account/AccountSection";
 import HeaderTitle from "../components/Header/HeaderTitle";
 import AccountModalHeader from "../components/Header/AccountHeader/AccountModalHeader";
 import BackBtn from "../components/UI/Button/BackBtn";
+import AccountBtn from "../components/UI/Button/AccountBtn";
+import UserForm from "../components/UI/Input/UserForm";
 
 const Join = () => {
   const [userName, setUserName] = useState<string>("");
@@ -62,10 +64,7 @@ const Join = () => {
   };
 
   // 버튼 회원가입 기능 함수
-  const handleBtnAccountJoin = async (
-    e: React.FormEvent<HTMLButtonElement>
-  ) => {
-    e.preventDefault();
+  const handleBtnAccountJoin = async () => {
     password !== password2 && setErrorMsg("비밀번호가 서로 동일하지 않습니다.");
     try {
       await createUserWithEmailAndPassword(auth, email, password);
@@ -81,50 +80,28 @@ const Join = () => {
       <BackGroundImg />
       <HeaderTitle />
       <AccountSection>
-        <AccountModalHeader>
-          <BackBtn onClick={handleCancleBtn} title="돌아가기" />
-          <div className={styles.join_section__login}>서비스 회원가입</div>
+        <AccountModalHeader className="account_modal_header">
+          <BackBtn
+            onClick={handleCancleBtn}
+            className="back_btn"
+            title="돌아가기"
+          />
+          <AccountModalHeader
+            className="account_section__login_title"
+            title="서비스 회원가입"
+          />
         </AccountModalHeader>
-        <div className={styles.join_user_wrap}>
-          <form onSubmit={handleSubmitAccountJoin} className={styles.join_form}>
-            <input
-              type="text"
-              name="username"
-              onChange={setUserInfo}
-              className={styles.join_name}
-              placeholder="닉네임"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              onChange={setUserInfo}
-              className={styles.join_email}
-              placeholder="이메일 주소"
-              required
-            />
-            <input
-              type="password"
-              name="password"
-              onChange={setUserInfo}
-              className={styles.join_password}
-              placeholder="비밀번호"
-              required
-            />
-            <input
-              type="password"
-              name="password2"
-              onChange={setUserInfo}
-              className={styles.join_password2}
-              placeholder="비밀번호 확인"
-              required
-            />
-            <button onClick={handleBtnAccountJoin} className={styles.join_btn}>
-              회원가입
-            </button>
-          </form>
-          <div className={styles.errorMsg}>{errorMsg ? errorMsg : null}</div>
-        </div>
+        <UserForm
+          handleSubmitAccountJoin={handleSubmitAccountJoin}
+          setUserInfo={setUserInfo}
+        />
+        <AccountBtn
+          className="account__join_btn"
+          onClick={handleBtnAccountJoin}
+          title="회원가입"
+        />
+        <div className={styles.errorMsg}>{errorMsg ? errorMsg : null}</div>
+
         <div className={styles.join_defaultLogin_wrap}>
           <span
             onClick={handleLoginBtn}

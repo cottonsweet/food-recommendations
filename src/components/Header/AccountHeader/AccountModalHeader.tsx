@@ -1,14 +1,21 @@
 import React from "react";
 
 // Css
-import styled from "./AccountModalHeader.module.css";
+import classes from "./AccountModalHeader.module.css";
 
 interface Props {
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  className?: string;
+  title?: string;
 }
 
 const AccountModalHeader = (props: Props) => {
-  return <div className={styled.account_modal_header}>{props.children}</div>;
+  return (
+    <div className={`${classes[props.className || ""]}`}>
+      {props.title}
+      {props.children}
+    </div>
+  );
 };
 
 export default AccountModalHeader;

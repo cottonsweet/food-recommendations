@@ -20,4 +20,5 @@
   padding: 30px;
   box-sizing: border-box;
   animation: fadeInBottomToTop 1s ease;
+  overflow: hidden;
 }

@@ -1,10 +1,20 @@
+import classes from "./AccountBtn.module.css";
+
 interface Props {
   title: string;
-  onClick: () => void;
+  className?: string;
+  onClick?: () => void;
 }
 
 const AccountBtn = (props: Props) => {
-  return <div onClick={props.onClick}>{props.title}</div>;
+  return (
+    <div
+      onClick={props.onClick}
+      className={`${classes[props.className || ""]}`}
+    >
+      {props.title}
+    </div>
+  );
 };
 
 export default AccountBtn;
