@@ -117,6 +117,8 @@ const Logged = () => {
         >
           <div>오늘은 어떤 음식을 드시고 싶으세요?</div>
         </FoodSection>
+
+        {/* -------------------------------------------------------------------------------------------------- */}
         <div className={styles.Main_food_wrap}>
           <div className={styles.Main_food__manual}>
             <span>오늘, 뭘 먹을래? 이용방법!</span>
