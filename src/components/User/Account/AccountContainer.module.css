@@ -16,7 +16,7 @@
   width: 100%;
   height: 70px;
   color: black;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   font-weight: bold;
   background-color: #ffffff;
