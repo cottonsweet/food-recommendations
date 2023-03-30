@@ -5,17 +5,17 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../Auth";
 
 // CSS
-import styles from "../styles/components/Logged.module.css";
+import classes from "./Logged.module.css";
 
 // Components
 import HeaderWrap from "../components/Header/HeaderWrapper/HeaderWrap";
 import HeaderText from "../components/Header/HeaderWrapper/HeaderText";
 import HeaderTitle from "../components/Header/HeaderTitle";
 import SettingIcons from "../components/UI/Icon/SettingIcon";
-import ResultModal from "../components/ResultModal";
+import ResultModal from "../components/UI/Modal/ResultModal";
 import AccountModalHeader from "../components/Header/AccountHeader/AccountModalHeader";
 import FoodArticle from "../components/Food/Title/FoodArticle";
-import FoodSelected from "../components/Food/Title/FoodSelected"
+import FoodSelected from "../components/Food/Title/FoodSelected";
 import FoodContainer from "../components/Food/FoodContainer";
 import FoodSection from "../components/Food/FoodSection";
 import Food from "../components/Food/Food";
@@ -96,7 +96,7 @@ const Logged = () => {
         <ResultModal result={result} isInAcitivyModal={isInAcitivyModal} />
       )}
 
-      <div className={styles.Logged}>
+      <div className={classes.Logged}>
         <HeaderWrap className="Header_wrap">
           <HeaderText className="Header_menu_Text">
             <HeaderTitle className="Logged_header__title" />
