@@ -4,17 +4,17 @@ import React from "react";
 import classes from "./FoodSection.module.css";
 
 interface Props {
-  children?: React.ReactNode;
+  userFood?: string;
   className?: string;
   onSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  userFood?: string;
 }
 
 const FoodSection = (props: Props) => {
   return (
     <div className={`${classes[props.className || ""]}`}>
-      {props.children}
+      <div>오늘은 어떤 음식을 드시고 싶으세요?</div>
+
       <form onSubmit={props.onSubmit}>
         <input
           onChange={props.onChange}

@@ -1,0 +1,10 @@
+.foodContainer {
+    height: 240px;
+    overflow-y: scroll;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-weight: bold;
+  }
+  

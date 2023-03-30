@@ -1,0 +1,12 @@
+.foodItem__selected_title {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  color: grey;
+  font-size: 14px;
+  margin: 15px 0;
+}
+
+.foodItem__selected_itemLength {
+  font-weight: bold;
+}

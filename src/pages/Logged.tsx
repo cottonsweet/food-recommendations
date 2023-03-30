@@ -4,10 +4,6 @@ import { useNavigate } from "react-router-dom";
 // Firebase
 import { auth } from "../Auth";
 
-// Icons
-import { HiCog } from "react-icons/hi";
-import { AiOutlineCheckCircle } from "react-icons/ai";
-
 // CSS
 import styles from "../styles/components/Logged.module.css";
 
@@ -18,7 +14,11 @@ import HeaderTitle from "../components/Header/HeaderTitle";
 import SettingIcons from "../components/UI/Icon/SettingIcon";
 import ResultModal from "../components/ResultModal";
 import AccountModalHeader from "../components/Header/AccountHeader/AccountModalHeader";
+import FoodArticle from "../components/Food/Title/FoodArticle";
+import FoodSelected from "../components/Food/Title/FoodSelected"
+import FoodContainer from "../components/Food/FoodContainer";
 import FoodSection from "../components/Food/FoodSection";
+import Food from "../components/Food/Food";
 import AccountBtn from "../components/UI/Button/AccountBtn";
 
 const Logged = () => {
@@ -87,6 +87,7 @@ const Logged = () => {
     setSelected([]);
   };
 
+  // 모달 활성화
   const isInAcitivyModal = () => setModal((prev) => !prev);
 
   return (
@@ -102,7 +103,7 @@ const Logged = () => {
             <SettingIcons onClick={handleEditBtn} />
           </HeaderText>
           <AccountModalHeader
-            className={"Logged_header__userName"}
+            className="Logged_header__userName"
             title={`${userName}님, 반갑습니다.`}
           />
         </HeaderWrap>
@@ -114,53 +115,21 @@ const Logged = () => {
           onSubmit={onSubmitFood}
           onChange={setFoodValue}
           userFood={userFood}
-        >
-          <div>오늘은 어떤 음식을 드시고 싶으세요?</div>
-        </FoodSection>
+        />
 
         {/* -------------------------------------------------------------------------------------------------- */}
-        <div className={styles.Main_food_wrap}>
-          <div className={styles.Main_food__manual}>
-            <span>오늘, 뭘 먹을래? 이용방법!</span>
-          </div>
-          <div className={styles.foodItem_header}>
-            <div className={styles.foodItem_itemLength}>
-              선택된 음식 - {selected.length} / {foodItem.length}
-            </div>
+        <FoodArticle>
+          <FoodSelected selected={selected} foodItem={foodItem}>
             <AccountBtn onClick={itemFoodListClearBtn} title="초기화" />
-          </div>
-          <div className={styles.foodItem}>
-            {foodItem?.map((a, i) => {
-              return (
-                <div
-                  onClick={selectedFoodItem}
-                  key={i}
-                  className={`${styles.foodItem__list}`}
-                >
-                  <span className={styles.foodItem__list__number}>{i + 1}</span>
-                  <span
-                    className={`${styles.foodItem__list__item} ${
-                      selected.includes(a)
-                        ? styles.foodItem__list__selected
-                        : ""
-                    }`}
-                  >
-                    {a}
-                    <span>
-                      <AiOutlineCheckCircle
-                        className={`${styles.foodItem__list__icon} ${
-                          selected.includes(a)
-                            ? styles.foodItem__list__selected__icon
-                            : ""
-                        }`}
-                      />
-                    </span>
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+          </FoodSelected>
+          <FoodContainer>
+            <Food
+              foodItem={foodItem}
+              selected={selected}
+              selectedFoodItem={selectedFoodItem}
+            />
+          </FoodContainer>
+        </FoodArticle>
         <AccountBtn
           onClick={randomArrResult}
           className="food_randomResult"

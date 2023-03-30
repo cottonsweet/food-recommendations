@@ -1,0 +1,55 @@
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.foodItem {
+  overflow: hidden;
+}
+
+.foodItem__list {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.foodItem__list__number {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-right: 10px;
+  padding: 8px 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color: #efefef;
+}
+
+.foodItem__list__item {
+  width: 100%;
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color: #efefef;
+}
+
+.foodItem__list__icon {
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+  color: grey;
+}
+
+.foodItem__list__selected {
+  background-color: grey;
+}
+
+.foodItem__list__selected__icon {
+  color: white;
+}
