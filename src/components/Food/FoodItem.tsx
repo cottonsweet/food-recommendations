@@ -27,6 +27,7 @@ const FoodItem = (props: Props) => {
               <span className={classes.foodItem}>{foodItem}</span>
               <span>
                 <AiOutlineCheckCircle
+                  onClick={(e) => e.stopPropagation()}
                   className={`${classes.foodItem__list__icon} ${
                     props.selected.includes(foodItem)
                       ? classes.foodItem__list__selected__icon

@@ -69,9 +69,9 @@ const Logged = () => {
     setSelected((selected) => [...selected, value]);
 
   const selectedFoodItem = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
     const value = String((e.target as HTMLElement).textContent);
     const indexLocation = selected.indexOf(value);
-
     if (indexLocation === -1) {
       return setItem(value);
     } else {
