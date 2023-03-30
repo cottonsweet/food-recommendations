@@ -1,9 +1,10 @@
 .header_title {
-  position: relative;
+  position: fixed;
   text-align: center;
   color: white;
   font-size: 33px;
   font-weight: bold;
+  width: 100%;
 }
 
 .header_title > div {
