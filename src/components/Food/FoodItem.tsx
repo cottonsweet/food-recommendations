@@ -14,13 +14,10 @@ const FoodItem = (props: Props) => {
     <ul>
       {props.foodItem?.map((foodItem, i) => {
         return (
-          <li
-            onClick={props.selectedFoodItem}
-            key={i}
-            className={`${classes.foodItem__list}`}
-          >
+          <li key={i} className={`${classes.foodItem__list}`}>
             <span className={classes.foodItem__list__number}>{i + 1}</span>
             <span
+              onClick={props.selectedFoodItem}
               className={`${classes.foodItem__list__item} ${
                 props.selected.includes(foodItem)
                   ? classes.foodItem__list__selected
