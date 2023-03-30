@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 // Firebase
 import { auth } from "../Auth";
+import { signOut } from "firebase/auth";
 
 // CSS
 import classes from "./Logged.module.css";
@@ -11,7 +12,7 @@ import classes from "./Logged.module.css";
 import HeaderWrap from "../components/Header/HeaderWrapper/HeaderWrap";
 import HeaderText from "../components/Header/HeaderWrapper/HeaderText";
 import HeaderTitle from "../components/Header/HeaderTitle";
-import SettingIcons from "../components/UI/Icon/SettingIcon";
+import LogoutIcon from "../components/UI/Icon/LogoutIcon";
 import ResultModal from "../components/UI/Modal/ResultModal";
 import AccountModalHeader from "../components/Header/AccountHeader/AccountModalHeader";
 import FoodArticle from "../components/Food/Title/FoodArticle";
@@ -31,8 +32,18 @@ const Logged = () => {
   const userName = auth.currentUser?.displayName;
   const path = useNavigate();
 
-  // 설정으로 이동
-  const handleEditBtn = () => path("/edit");
+  // 로그아웃 기능
+  const handleLogoutBtn = async () => {
+    if (window.confirm("로그아웃 하시겠습니까 ?")) {
+      try {
+        alert("로그아웃 되었습니다.");
+        await signOut(auth);
+        path("/");
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
 
   /** 배열 초기화 함수 */
   const itemFoodListClearBtn = () => {
@@ -100,7 +111,7 @@ const Logged = () => {
         <HeaderWrap className="Header_wrap">
           <HeaderText className="Header_menu_Text">
             <HeaderTitle className="Logged_header__title" />
-            <SettingIcons onClick={handleEditBtn} />
+            <LogoutIcon onClick={handleLogoutBtn} />
           </HeaderText>
           <AccountModalHeader
             className="Logged_header__userName"

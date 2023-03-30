@@ -9,7 +9,6 @@ import Logged from "./Logged";
 import Home from "./Home";
 import Login from "./Login";
 import Join from "./Join";
-import Edit from "./Edit";
 
 const Router = () => {
   const [login, setLogin] = useState(false);
@@ -24,7 +23,6 @@ const Router = () => {
       {login ? (
         <Routes>
           <Route path="/" element={<Logged />} />
-          <Route path="/edit" element={<Edit />} />
         </Routes>
       ) : (
         <Routes>
