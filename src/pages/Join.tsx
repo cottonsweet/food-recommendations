@@ -2,11 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Firebase
-import {
-  createUserWithEmailAndPassword,
-  updateProfile,
-  User,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile, User } from "firebase/auth";
 import { auth } from "../Auth";
 
 // CSS
@@ -53,9 +49,7 @@ const Join = () => {
   };
 
   // 회원가입 기능 함수
-  const handleSubmitAccountJoin = async (
-    e: React.FormEvent<HTMLFormElement>
-  ) => {
+  const handleSubmitAccountJoin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     password !== password2 && setErrorMsg("비밀번호가 서로 동일하지 않습니다.");
     try {
@@ -85,33 +79,15 @@ const Join = () => {
       <HeaderTitle className="header_title" />
       <AccountSection>
         <AccountModalHeader className="account_modal_header">
-          <BackBtn
-            onClick={handleCancleBtn}
-            className="back_btn"
-            title="돌아가기"
-          />
-          <AccountModalHeader
-            className="account_section__login_title"
-            title="서비스 회원가입"
-          />
+          <BackBtn onClick={handleCancleBtn} className="back_btn" title="돌아가기" />
+          <AccountModalHeader className="account_section__login_title" title="서비스 회원가입" />
         </AccountModalHeader>
-        <UserJoinForm
-          handleSubmitAccountJoin={handleSubmitAccountJoin}
-          setUserInfo={setUserInfo}
-        />
-        <AccountBtn
-          className="account__join_btn"
-          onClick={handleBtnAccountJoin}
-          title="회원가입"
-        />
+        <UserJoinForm handleSubmitAccountJoin={handleSubmitAccountJoin} setUserInfo={setUserInfo} />
+        <AccountBtn className="account__join_btn" onClick={handleBtnAccountJoin} title="회원가입" />
         <div className={classes.errorMsg}>{errorMsg ? errorMsg : null}</div>
 
         <div>
-          <AccountBtn
-            onClick={handleLoginBtn}
-            className="join_defaultLogin_wrap"
-            title="이미 가입하신 계정이 있으신가요 ?"
-          />
+          <AccountBtn onClick={handleLoginBtn} className="join_defaultLogin_wrap" title="이미 가입하신 계정이 있으신가요 ?" />
         </div>
       </AccountSection>
     </>
