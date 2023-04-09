@@ -6,11 +6,11 @@ interface Props {
 
 const HeaderTitle = (props: Props) => {
   return (
-      <div className={`${classes[props.className || ""]}`}>
-        <div>오늘,</div>
-        <span>뭘</span>
-        <span>먹을까?</span>
-      </div>
+    <div className={`${classes[props.className || ""]}`}>
+      <div>오늘,</div>
+      <span>뭘</span>
+      <span>먹을까?</span>
+    </div>
   );
 };
 

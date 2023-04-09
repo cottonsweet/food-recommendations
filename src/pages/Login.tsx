@@ -58,28 +58,13 @@ const Login = () => {
       <HeaderTitle className="header_title" />
       <AccountSection>
         <AccountModalHeader className="account_modal_header">
-          <BackBtn
-            onClick={handleCancleBtn}
-            className="back_btn"
-            title="돌아가기"
-          />
+          <BackBtn onClick={handleCancleBtn} className="back_btn" title="돌아가기" />
           <AccountModalHeader className="login_section__login" title="로그인" />
         </AccountModalHeader>
-        <UserLoginForm
-          onChangeInputValue={onChangeInputValue}
-          handleSubmitLoginBtn={handleSubmitLoginBtn}
-        />
+        <UserLoginForm onChangeInputValue={onChangeInputValue} handleSubmitLoginBtn={handleSubmitLoginBtn} />
         <div>
-          <AccountBtn
-            className="account__join_btn"
-            onClick={handleLoginBtn}
-            title="로그인"
-          />
-          <AccountBtn
-            onClick={handleLoginBtn}
-            className="join_defaultLogin_wrap"
-            title="가입하신 계정이 없으신가요 ?"
-          />
+          <AccountBtn className="account__join_btn" onClick={handleLoginBtn} title="로그인" />
+          <AccountBtn onClick={handleJoinBtn} className="join_defaultLogin_wrap" title="가입하신 계정이 없으신가요 ?" />
         </div>
       </AccountSection>
     </>

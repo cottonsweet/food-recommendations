@@ -1,7 +1,5 @@
 import FoodItem from "./FoodItem";
 
-
-
 interface Props {
   foodItem: string[];
   selected: string[];
@@ -11,11 +9,7 @@ interface Props {
 const Food = (props: Props) => {
   return (
     <>
-      <FoodItem
-        foodItem={props.foodItem}
-        selected={props.selected}
-        selectedFoodItem={props.selectedFoodItem}
-      />
+      <FoodItem foodItem={props.foodItem} selected={props.selected} selectedFoodItem={props.selectedFoodItem} />
     </>
   );
 };

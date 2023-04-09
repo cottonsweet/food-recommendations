@@ -13,9 +13,7 @@ import Join from "./Join";
 const Router = () => {
   const [login, setLogin] = useState(false);
   useEffect(() => {
-    onAuthStateChanged(auth, (user) =>
-      user ? setLogin(true) : setLogin(false)
-    );
+    onAuthStateChanged(auth, (user) => (user ? setLogin(true) : setLogin(false)));
   });
 
   return (

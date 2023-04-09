@@ -9,10 +9,7 @@ interface Props {
 
 const BackBtn = (props: Props) => {
   return (
-    <div
-      className={`${classes[props.className || ""]}`}
-      onClick={props.onClick}
-    >
+    <div className={`${classes[props.className || ""]}`} onClick={props.onClick}>
       {props.title}
     </div>
   );

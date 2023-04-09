@@ -16,11 +16,7 @@ const FoodSection = (props: Props) => {
       <div>오늘은 어떤 음식을 드시고 싶으세요?</div>
 
       <form onSubmit={props.onSubmit}>
-        <input
-          onChange={props.onChange}
-          value={props.userFood}
-          placeholder="음식 이름을 여기에 입력 해주세요!"
-        />
+        <input onChange={props.onChange} value={props.userFood} placeholder="음식 이름을 여기에 입력 해주세요!" />
       </form>
     </div>
   );

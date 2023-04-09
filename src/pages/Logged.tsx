@@ -65,8 +65,7 @@ const Logged = () => {
     setUserFood("");
   };
 
-  const setItem = (value: string) =>
-    setSelected((selected) => [...selected, value]);
+  const setItem = (value: string) => setSelected((selected) => [...selected, value]);
 
   const selectedFoodItem = (e: React.MouseEvent<HTMLElement>) => {
     const value = String((e.target as HTMLElement).textContent);
@@ -81,16 +80,13 @@ const Logged = () => {
   };
 
   /** 사용자 Input 값 저장하는 함수 */
-  const setFoodValue = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setUserFood(e.target.value);
+  const setFoodValue = (e: React.ChangeEvent<HTMLInputElement>) => setUserFood(e.target.value);
 
   /** 랜덤배열 결과값 출력 함수 */
   const randomArrResult = () => {
     if (selected.length === 0) return alert("선택된 음식이 없어요 !");
-    if (selected.length === 1)
-      return alert("음식은 2개이상 선택해주셔야 합니다 !");
-    const resultFoodData =
-      selected[Math.floor(Math.random() * selected.length)];
+    if (selected.length === 1) return alert("음식은 2개이상 선택해주셔야 합니다 !");
+    const resultFoodData = selected[Math.floor(Math.random() * selected.length)];
     setModal(true);
     setResult(resultFoodData);
     setFoodItem([]);
@@ -102,9 +98,7 @@ const Logged = () => {
 
   return (
     <>
-      {modal && (
-        <ResultModal result={result} isInAcitivyModal={isInAcitivyModal} />
-      )}
+      {modal && <ResultModal result={result} isInAcitivyModal={isInAcitivyModal} />}
 
       <div className={classes.Logged}>
         <HeaderWrap className="Header_wrap">
@@ -112,20 +106,12 @@ const Logged = () => {
             <HeaderTitle className="Logged_header__title" />
             <LogoutIcon onClick={handleLogoutBtn} />
           </HeaderText>
-          <AccountModalHeader
-            className="Logged_header__userName"
-            title={`${userName}님, 반갑습니다.`}
-          />
+          <AccountModalHeader className="Logged_header__userName" title={`${userName}님, 반갑습니다.`} />
         </HeaderWrap>
 
         {/* -------------------------------------------------------------------------------------------------- */}
 
-        <FoodSection
-          className="food_section"
-          onSubmit={onSubmitFood}
-          onChange={setFoodValue}
-          userFood={userFood}
-        />
+        <FoodSection className="food_section" onSubmit={onSubmitFood} onChange={setFoodValue} userFood={userFood} />
 
         {/* -------------------------------------------------------------------------------------------------- */}
         <FoodArticle>
@@ -133,18 +119,10 @@ const Logged = () => {
             <AccountBtn onClick={itemFoodListClearBtn} title="초기화" />
           </FoodSelected>
           <FoodContainer>
-            <Food
-              foodItem={foodItem}
-              selected={selected}
-              selectedFoodItem={selectedFoodItem}
-            />
+            <Food foodItem={foodItem} selected={selected} selectedFoodItem={selectedFoodItem} />
           </FoodContainer>
         </FoodArticle>
-        <AccountBtn
-          onClick={randomArrResult}
-          className="food_randomResult"
-          title="결과 확인하기"
-        />
+        <AccountBtn onClick={randomArrResult} className="food_randomResult" title="결과 확인하기" />
       </div>
     </>
   );
