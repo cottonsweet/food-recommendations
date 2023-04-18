@@ -9,16 +9,17 @@ What It is? : 어떤 음식을 먹을까 ?
 
 ### 홈(루트)
 
-<img src="./public/cover_root.PNG" width="42.7%"/>
+<img src="./public/cover_root.PNG" width="240px" height="350px" />
 
 ### 로그인 / 회원가입
 
-<img src="./public/cover_login.PNG" width="43%"/>
-<img src="./public/cover_join.PNG" width="42.7%"/>
-
+<p align="left">
+<img src="./public/cover_login.PNG" width="240px" height="350px"/>
+<img src="./public/cover_join.PNG" width="240px" height="350px"/>
+</p>
 ### 메인
 
-<img src="./public/cover_main.PNG" width="42.7%"/>
+<img src="./public/cover_main.PNG" width="240px" height="350px"/>
 
 
 
