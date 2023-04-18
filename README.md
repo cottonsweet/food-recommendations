@@ -1,7 +1,5 @@
 # Food-Recommend - 음식 추천 뽑기
 
-<img src="" width="100%" alt="coverImg"/>
-
 What It is? : 어떤 음식을 먹을까 ?
 
 ## 최종 구현 화면
@@ -9,16 +7,30 @@ What It is? : 어떤 음식을 먹을까 ?
 - netlify - [https://foodrecommend.netlify.app/](https://foodrecommend.netlify.app/)
 
 
+### 홈(루트)
+
+<img src="./public/cover_root.PNG" width="42.7%"/>
+
+### 로그인 / 회원가입
+
+<img src="./public/cover_login.PNG" width="43%"/>
+<img src="./public/cover_join.PNG" width="42.7%"/>
+
+### 메인
+
+<img src="./public/cover_main.PNG" width="42.7%"/>
+
+
 
 <br>
 
-## 토이 프로젝트 진행 목적
+## 프로젝트 진행 목적
 
 - `React` `Typescript` 컴포넌트 모듈화
 - `async`, `await`로 비동기 프로그래밍 코드 작성
 - `vite create` 및 `netlify` 배포
 - `firebase`로 로그인 기능 구현
-- mobile, tablet, pc 버전을 고려한 반응형 UI 디자인
+- `모바일` 기준으로 제작된 웹 앱
 
 <br>
 
@@ -26,12 +38,11 @@ What It is? : 어떤 음식을 먹을까 ?
 
 - [✅] 컴포넌트 모듈화
 - [✅] 로그인 기능 구현 (로그인, 로그아웃, 회원가입)
-- [✅] 라우터로 메뉴 카테고리 구현 (홈, 비즈니스, 엔터테인먼트 등)
+- [✅] 라우터별로 뷰 구현 (홈(루트), 로그인, 회원가입, 메인 등)
 - [✅] 심플하고 가독성이 높은 UI
-- [✅] 모바일, 타블렛, 피씨 버전을 고려한 반응형 웹 사이트
-- [✅] CSS 라이브러리 없이 SASS로 UI 구현
-- [✅] img fetch error 케이스 default img로 분기 처리
-- [✅] fetch data string 한글 깨짐 현상 분기 처리
+- [✅] 모바일 버전 기준을 고려한 웹 앱
+- [✅] CSS module 관리로, 컴포넌트별 CSS 관리 편리 및 클래스 명의 전역 중복(오염) 방지
+- [✅] 사용자의 편의성을 위한 입력한 음식 데이터를 골라서 랜덤 추출
 
 <br>
 
@@ -45,6 +56,9 @@ What It is? : 어떤 음식을 먹을까 ?
 ## 실행 방법
 
 ```
+git clone https://github.com/sstipdev/food-recommendations
+
 yarn -i
-yarn dev
+
+yarn run dev
 ```
