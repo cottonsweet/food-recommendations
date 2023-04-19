@@ -1,5 +1,10 @@
 # Food-Recommend - 음식 추천 뽑기
 
+<img src="https://i.imgur.com/G7tgBoB.png" width="450px"  />
+
+<br>
+
+
 What It is? : 어떤 음식을 먹을까 ?
 
 ## 최종 구현 화면
